@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 1367877839
+    locked: 0
+  - name: 1
+    uniqueID: 2106777933
+    locked: 0
+  - name: 2
+    uniqueID: 4082505461
+    locked: 0
+  - name: 3
+    uniqueID: 1006078423
+    locked: 0
+  - name: HiddenArea
+    uniqueID: 1920154283
+    locked: 0
+  - name: BG_Object
+    uniqueID: 826854083
+    locked: 0
+  - name: Player
+    uniqueID: 3384528979
+    locked: 0
