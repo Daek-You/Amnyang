@@ -12,6 +12,8 @@ public class SujiMoveController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private float walkDirection;
     private float initScaleX;
+    private bool isRunning;
+
 
     void Start()
     {
@@ -23,22 +25,29 @@ public class SujiMoveController : MonoBehaviour
     void Update()
     {
         walkDirection = Input.GetAxisRaw("Horizontal");
+        isRunning = Input.GetButton("Run");
     }
-
 
     void FixedUpdate()
     {
-        Walk();
-    }
-
-    private void Walk()
-    {
         bool hasControl = !Mathf.Approximately(walkDirection, 0f);
         TurnOtherSide(hasControl);
-        animator.SetBool("Walk", hasControl);
-        _rigidBody.velocity = new Vector2(walkDirection * walkSpeed, _rigidBody.velocity.y);
+        Move(hasControl);
     }
 
+    private void Move(bool hasControl)   // 0f : Idle, 0.5f : Walk, 1f : Run
+    {
+        if (hasControl && isRunning)
+        {
+            animator.SetFloat("Move", 1f);
+            _rigidBody.velocity = new Vector2(walkDirection * walkSpeed * 2f, _rigidBody.velocity.y);  // 일단 달리기는 걷는 속도의 2배로 해놓음
+            return;
+        }
+
+        float walkValue = (hasControl && !isRunning) ? 0.5f : 0f;
+        animator.SetFloat("Move", walkValue);
+        _rigidBody.velocity = new Vector2(walkDirection * walkSpeed, _rigidBody.velocity.y);
+    }
 
     private void TurnOtherSide(bool hasControl)
     {
