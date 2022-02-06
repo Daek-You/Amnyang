@@ -13,7 +13,8 @@ public class SujiMoveController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private float walkDirection;
     private float initScaleX;
-    private const float JUMP_CHARGING_DELAY = 0.55f;      // "서전트 점프" 시 사용
+    private const float JUMP_CHARGING_DELAY = 0.55f;
+    private WaitForSeconds landingDelay = new WaitForSeconds(0.5f);
     private bool hasControl;
     private bool isRunning;
     private bool isJumping;
@@ -25,7 +26,6 @@ public class SujiMoveController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();          
         initScaleX = sujiTransform.localScale.x;
     }
-
     void Update()
     {
         walkDirection = Input.GetAxisRaw("Horizontal");
@@ -46,32 +46,49 @@ public class SujiMoveController : MonoBehaviour
 
     private void Jump() 
     {
-        if (!hasControl && !isJumping)  // 제자리 점프일 경우
-        {
-            isJumping = true;
-            animator.SetBool("Jump", true);
-            Invoke("_Jump", JUMP_CHARGING_DELAY);     
-        }
-        /// 이동 중 점프 구현하기
+        isJumping = true;
 
+        if (!hasControl)
+        {
+            animator.SetBool("SargentJump", true);
+            Invoke("_Jump", JUMP_CHARGING_DELAY);
+        }
+        else
+        {
+            animator.SetBool("MoveJump", true);
+            _Jump();
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Jumpable_Floor") && isJumping)
+        {
+            if (animator.GetBool("SargentJump"))
+            {
+                animator.SetTrigger("Landing");
+                animator.SetBool("SargentJump", false);
+                StartCoroutine(LandingDelay());
+                return;
+            }
+            
+            animator.SetBool("MoveJump", false);
+            isJumping = false;
+        }
     }
 
     private void _Jump()
     {
         _rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    IEnumerator LandingDelay()
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Jumpable_Floor"))
-        {
-            if (isJumping)
-            {
-                animator.SetTrigger("Landing");
-                animator.SetBool("Jump", false);
-                isJumping = false;
-            }
-        }
+        yield return landingDelay;
+        isJumping = false;
     }
+
     private void Move()
     {
         /* 0f : Idle, 0.5f : Walk, 1f : Run  */
@@ -90,12 +107,10 @@ public class SujiMoveController : MonoBehaviour
         animator.SetFloat("Move", walkValue);
         _rigidBody.velocity = new Vector2(walkDirection * walkSpeed, _rigidBody.velocity.y);
     }
+
     private void TurnOtherSide()
     {
-        if (!hasControl)
-            return;
-
-        if (isJumping)
+        if (!hasControl || isJumping)
             return;
 
         var scaleX = sujiTransform.localScale.x;
