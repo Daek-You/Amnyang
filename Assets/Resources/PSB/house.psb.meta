@@ -1,0 +1,441 @@
+fileFormatVersion: 2
+guid: 6f22a37f9441f1c44ae440e7088f4907
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Hum
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1702
+      y: 261
+      width: 39
+      height: 136
+    spriteID: 543ccc3bead17754cac23ad845f921a1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1010, y: -115}
+  - name: eye
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1887
+      y: 322
+      width: 44
+      height: 35
+    spriteID: 0840bd98a012fb949ba1d260219b5caf
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1178, y: 64}
+  - name: dog house
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 541
+      width: 193
+      height: 159
+    spriteID: 7513093fa92f9ab4ba8fa529163b5dc6
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1103, y: 502}
+  - name: 2f
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 452
+      width: 530
+      height: 81
+    spriteID: 6b277621c418f6b4e91ba7e73198b2c4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -293, y: 95}
+  - name: cloth
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1338
+      y: 315
+      width: 181
+      height: 79
+    spriteID: d6e3eca734df14241a73deb89e2bc846
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 976, y: -304}
+  - name: door
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1702
+      y: 4
+      width: 177
+      height: 249
+    spriteID: 5c33d43100006a745a9b7f8efd912b55
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1507, y: -43}
+  - name: window
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1338
+      y: 4
+      width: 356
+      height: 303
+    spriteID: f1681db4ab5e6fb43ae2d0723b127b63
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 913, y: -228}
+  - name: house
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 789
+      height: 440
+    spriteID: ecd266f2c96ffaa4b89330997b91409f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -47, y: -23}
+  - name: 2F
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 801
+      y: 4
+      width: 529
+      height: 304
+    spriteID: ac4ef66abdbb91e48974460ae24072cb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 502, y: -347}
+  - name: main door
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1887
+      y: 4
+      width: 105
+      height: 310
+    spriteID: d75477341daa80349a16731e47778259
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 881, y: -31}
+  - name: maindoor2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 708
+      width: 68
+      height: 330
+    spriteID: 864811ab1afd7cd4b857314413bfaa62
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -955, y: 662}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 2048
+  importedTextureHeight: 2048
+  documentSize: {x: 2000, y: 1100}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 2048
+  textureActualHeight: 2048
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Hum
+    spriteName: Hum
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 543ccc3bead17754cac23ad845f921a1
+    layerID: 12
+    mosaicPosition: {x: 1702, y: 261}
+  - name: eye
+    spriteName: eye
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0840bd98a012fb949ba1d260219b5caf
+    layerID: 11
+    mosaicPosition: {x: 1887, y: 322}
+  - name: dog house
+    spriteName: dog house
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7513093fa92f9ab4ba8fa529163b5dc6
+    layerID: 10
+    mosaicPosition: {x: 4, y: 541}
+  - name: 2f
+    spriteName: 2f
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6b277621c418f6b4e91ba7e73198b2c4
+    layerID: 9
+    mosaicPosition: {x: 4, y: 452}
+  - name: cloth
+    spriteName: cloth
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d6e3eca734df14241a73deb89e2bc846
+    layerID: 8
+    mosaicPosition: {x: 1338, y: 315}
+  - name: door
+    spriteName: door
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5c33d43100006a745a9b7f8efd912b55
+    layerID: 7
+    mosaicPosition: {x: 1702, y: 4}
+  - name: window
+    spriteName: window
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f1681db4ab5e6fb43ae2d0723b127b63
+    layerID: 6
+    mosaicPosition: {x: 1338, y: 4}
+  - name: house
+    spriteName: house
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ecd266f2c96ffaa4b89330997b91409f
+    layerID: 5
+    mosaicPosition: {x: 4, y: 4}
+  - name: 2F
+    spriteName: 2F
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ac4ef66abdbb91e48974460ae24072cb
+    layerID: 4
+    mosaicPosition: {x: 801, y: 4}
+  - name: main door
+    spriteName: main door
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d75477341daa80349a16731e47778259
+    layerID: 3
+    mosaicPosition: {x: 1887, y: 4}
+  - name: maindoor2
+    spriteName: maindoor2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 864811ab1afd7cd4b857314413bfaa62
+    layerID: 2
+    mosaicPosition: {x: 4, y: 708}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: house Texture
+  prefabAssetName: house Prefab
+  spriteLibAssetName: house Sprite Lib
+  secondarySpriteTextures: []
