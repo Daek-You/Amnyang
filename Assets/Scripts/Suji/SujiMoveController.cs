@@ -8,24 +8,34 @@ public class SujiMoveController : MonoBehaviour
     public float walkSpeed;
     public float jumpPower;
     public Transform sujiTransform;
+    public GameObject suji;
+    public InteractiveObject InteractiveObject { set { _interactiveObject = value; } }
+    private InteractiveObject _interactiveObject;
+
 
     private Animator animator;
     private Rigidbody2D _rigidBody;
+    private WaitForSeconds landingDelay = new WaitForSeconds(0.5f);
     private float walkDirection;
     private float initScaleX;
     private const float JUMP_CHARGING_DELAY = 0.55f;
-    private WaitForSeconds landingDelay = new WaitForSeconds(0.5f);
     private bool hasControl;
     private bool isRunning;
     private bool isJumping;
+    private bool isHiding;
+    public bool IsHiding { get { return isHiding; }}
+
+
 
 
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();          
+        animator = GetComponentInChildren<Animator>();
         initScaleX = sujiTransform.localScale.x;
     }
+
+
     void Update()
     {
         walkDirection = Input.GetAxisRaw("Horizontal");
@@ -36,7 +46,13 @@ public class SujiMoveController : MonoBehaviour
         {
             Jump();
         }
+
+        if (Input.GetButtonDown("Interaction"))
+        {
+            Interaction();
+        }
     }
+
     void FixedUpdate()
     {
         TurnOtherSide();
@@ -44,7 +60,33 @@ public class SujiMoveController : MonoBehaviour
     }
 
 
-    private void Jump() 
+
+
+    private void Interaction()
+    {
+        if (_interactiveObject == null)
+            return;
+
+        _interactiveObject.Interaction();
+    }
+
+    public void Hide()
+    {
+        bool sujiActiveState = suji.activeSelf;
+
+        if (sujiActiveState)
+        {
+            isHiding = true;
+            suji.SetActive(false);
+        }
+        else
+        {
+            isHiding = false;
+            suji.SetActive(true);
+        }
+    }
+
+    private void Jump()
     {
         isJumping = true;
 
@@ -59,7 +101,6 @@ public class SujiMoveController : MonoBehaviour
             _Jump();
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

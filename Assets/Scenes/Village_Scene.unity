@@ -771,6 +771,11 @@ MonoBehaviour:
   moveSpeed: 1
   canMoveAreaCenter: {x: -101.895, y: 18.8}
   canMoveAreaSize: {x: 340, y: 48}
+--- !u!1 &544377395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3842949728054085749, guid: bda46b6e4f7a6eb46917c803d079627c, type: 3}
+  m_PrefabInstance: {fileID: 2140284177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &624880727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2486,6 +2491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7220504792930890728, guid: bda46b6e4f7a6eb46917c803d079627c, type: 3}
+      propertyPath: suji
+      value: 
+      objectReference: {fileID: 544377395}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda46b6e4f7a6eb46917c803d079627c, type: 3}
 --- !u!1001 &1124743684741325906
