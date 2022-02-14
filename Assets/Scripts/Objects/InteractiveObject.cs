@@ -8,7 +8,7 @@ public class InteractiveObject : MonoBehaviour
 
     public bool canHideObject;
     private Collider2D _collider;
-    private SujiMoveController suji;
+    private SujiController suji;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class InteractiveObject : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            suji = collision.gameObject.GetComponent<SujiMoveController>();
+            suji = collision.gameObject.GetComponent<SujiController>();
 
             if (suji != null)
             {

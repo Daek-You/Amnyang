@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SujiMoveController : MonoBehaviour
+public class SujiController : MonoBehaviour
 {
 
     public float walkSpeed;
     public float jumpPower;
-    public Transform sujiTransform;
-    public GameObject suji;
     public InteractiveObject InteractiveObject { set { _interactiveObject = value; } }
+    public Transform suji;
+
+
     private InteractiveObject _interactiveObject;
-
-
     private Animator animator;
     private Rigidbody2D _rigidBody;
     private WaitForSeconds landingDelay = new WaitForSeconds(0.5f);
@@ -22,9 +21,6 @@ public class SujiMoveController : MonoBehaviour
     private bool hasControl;
     private bool isRunning;
     private bool isJumping;
-    private bool isHiding;
-    public bool IsHiding { get { return isHiding; }}
-
 
 
 
@@ -32,7 +28,7 @@ public class SujiMoveController : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-        initScaleX = sujiTransform.localScale.x;
+        initScaleX = suji.localScale.x;
     }
 
 
@@ -59,7 +55,26 @@ public class SujiMoveController : MonoBehaviour
         Move();
     }
 
+    public void Hide()
+    {
+        bool isSujiActive = suji.gameObject.activeSelf;
 
+        if (isSujiActive)
+        {
+            suji.gameObject.SetActive(false);
+        }
+        else
+        {
+            suji.gameObject.SetActive(true);
+        }
+    }
+
+    public bool IsHide()
+    {
+        if (!suji.gameObject.activeSelf)
+            return true;
+        return false;
+    }
 
 
     private void Interaction()
@@ -68,22 +83,6 @@ public class SujiMoveController : MonoBehaviour
             return;
 
         _interactiveObject.Interaction();
-    }
-
-    public void Hide()
-    {
-        bool sujiActiveState = suji.activeSelf;
-
-        if (sujiActiveState)
-        {
-            isHiding = true;
-            suji.SetActive(false);
-        }
-        else
-        {
-            isHiding = false;
-            suji.SetActive(true);
-        }
     }
 
     private void Jump()
@@ -154,13 +153,13 @@ public class SujiMoveController : MonoBehaviour
         if (!hasControl || isJumping)
             return;
 
-        var scaleX = sujiTransform.localScale.x;
+        var scaleX = suji.localScale.x;
         if (Mathf.Approximately(walkDirection * scaleX, initScaleX))
             return;
 
-        var scaleY = sujiTransform.localScale.y;
-        var scaleZ = sujiTransform.localScale.z;
+        var scaleY = suji.localScale.y;
+        var scaleZ = suji.localScale.z;
 
-        sujiTransform.localScale = new Vector3(-scaleX, scaleY, scaleZ);
+        suji.localScale = new Vector3(-scaleX, scaleY, scaleZ);
     }
 }
