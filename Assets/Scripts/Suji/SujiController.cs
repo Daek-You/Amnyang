@@ -7,13 +7,16 @@ public class SujiController : MonoBehaviour
 
     public float walkSpeed;
     public float jumpPower;
-    public InteractiveObject InteractiveObject { set { _interactiveObject = value; } }
     public Transform suji;
+    public InteractiveObject InteractiveObject { set { _interactiveObject = value; } }
+    public bool IsHiding { get { return isHiding; } private set {} }
+    public GameObject[] myBodies;
 
 
     private InteractiveObject _interactiveObject;
     private Animator animator;
     private Rigidbody2D _rigidBody;
+    private Collider2D _collider;
     private WaitForSeconds landingDelay = new WaitForSeconds(0.5f);
     private float walkDirection;
     private float initScaleX;
@@ -21,12 +24,13 @@ public class SujiController : MonoBehaviour
     private bool hasControl;
     private bool isRunning;
     private bool isJumping;
-
+    private bool isHiding;
 
 
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         animator = GetComponentInChildren<Animator>();
         initScaleX = suji.localScale.x;
     }
@@ -57,25 +61,20 @@ public class SujiController : MonoBehaviour
 
     public void Hide()
     {
-        bool isSujiActive = suji.gameObject.activeSelf;
+        if (isJumping)
+            return;
 
-        if (isSujiActive)
+        if (!isHiding)
         {
-            suji.gameObject.SetActive(false);
+            isHiding = true;
+            ControlEnableMyBody(false);
         }
         else
         {
-            suji.gameObject.SetActive(true);
+            isHiding = false;
+            ControlEnableMyBody(true);
         }
     }
-
-    public bool IsHide()
-    {
-        if (!suji.gameObject.activeSelf)
-            return true;
-        return false;
-    }
-
 
     private void Interaction()
     {
@@ -85,8 +84,35 @@ public class SujiController : MonoBehaviour
         _interactiveObject.Interaction();
     }
 
+
+    private void ControlEnableMyBody(bool enable)
+    {
+        float gravityScale = enable ? 3f : 0f;
+
+        if (!enable)
+        {
+            _collider.isTrigger = true;               // enabled = false로 하면, 상호작용 오브젝트가 탐지를 못한다.
+            _rigidBody.gravityScale = gravityScale;   // 콜라이더 충돌이 안 되게 설정했기 때문에, 바닥으로 떨어진다.
+        }
+
+        foreach (var myBody in myBodies)
+        {
+            myBody.SetActive(enable);
+        }
+
+        if (enable)
+        {
+            _collider.isTrigger = false;
+            _rigidBody.gravityScale = gravityScale;
+        }
+    }
+
+
     private void Jump()
     {
+        if (isHiding)
+            return;
+
         isJumping = true;
 
         if (!hasControl)
@@ -135,6 +161,14 @@ public class SujiController : MonoBehaviour
 
         if (isJumping)
             return;
+
+        if (isHiding)
+        {
+            animator.SetFloat("Move", 0f);
+            _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
+            return;
+        }
+
 
         if (hasControl && isRunning)
         {

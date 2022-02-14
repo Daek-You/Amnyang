@@ -651,7 +651,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   jumpPower: 15
-  sujiTransform: {fileID: 1996621630411724240}
+  suji: {fileID: 1996621630411724240}
+  myBodies:
+  - {fileID: 6946484271377001681}
+  - {fileID: 5739870571516931311}
+  - {fileID: 3324624905456460881}
+  - {fileID: 5425962458577883891}
+  - {fileID: 8638948871546365637}
+  - {fileID: 6350685594656638100}
+  - {fileID: 7533717767706411720}
+  - {fileID: 310445989981091467}
+  - {fileID: 7058740483420914143}
+  - {fileID: 7980216356049493757}
+  - {fileID: 7673215823908912894}
 --- !u!61 &1691588344
 BoxCollider2D:
   m_ObjectHideFlags: 0

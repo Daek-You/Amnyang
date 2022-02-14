@@ -771,11 +771,50 @@ MonoBehaviour:
   moveSpeed: 1
   canMoveAreaCenter: {x: -101.895, y: 18.8}
   canMoveAreaSize: {x: 340, y: 48}
---- !u!1 &544377395 stripped
+--- !u!1 &575457713 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3842949728054085749, guid: bda46b6e4f7a6eb46917c803d079627c, type: 3}
-  m_PrefabInstance: {fileID: 2140284177}
+  m_CorrespondingSourceObject: {fileID: 7244004752342476460, guid: 9bcc5331f4fc06d4db004f57e315b4a0, type: 3}
+  m_PrefabInstance: {fileID: 1124743684741325906}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &575457716
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575457713}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.93, y: 1.59}
+    newSize: {x: 1.93, y: 1.59}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.93, y: 1.59}
+  m_EdgeRadius: 0
+--- !u!114 &575457717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575457713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf8eaff6c93cc044a1a124f63da2915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 1
 --- !u!1001 &624880727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2491,10 +2530,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7220504792930890728, guid: bda46b6e4f7a6eb46917c803d079627c, type: 3}
-      propertyPath: suji
-      value: 
-      objectReference: {fileID: 544377395}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda46b6e4f7a6eb46917c803d079627c, type: 3}
 --- !u!1001 &1124743684741325906
