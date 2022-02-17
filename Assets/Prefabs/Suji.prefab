@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8570118312960621898}
   m_Layer: 0
   m_Name: RightArmIK
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,10 +140,10 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.6
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9716981, g: 0.92082995, b: 0.7654414, a: 1}
   m_Intensity: 3
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000cf2888514de1927df51656f3d789f73bab3a7372c3ca483153d0bbc94b40daaed92da8f80b9944600588e4029fd1e780
+  m_ApplyToSortingLayers: 00000000cf2888514de1927df51656f3d789f73bab3a7372c3ca483153d0bbc94b40daaed92da8f80b9944600588e4029fd1e780572bd5953168809c69a58f40ff76dcd0a910ea03ab0a735f0d6382c79d1e3cb1bbe825368512c88e
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 1
   m_LightOrder: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 4551655322048667250}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,8 +388,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 4
   m_Sprite: {fileID: 4893737718597719565, guid: 787191fe9c553094185d92c06b020156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 1417235376874762548}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 3115843039638438815}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -946,8 +946,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 7
   m_Sprite: {fileID: 4549197771487052865, guid: 787191fe9c553094185d92c06b020156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -977,7 +977,7 @@ MonoBehaviour:
   - {fileID: 45460241216885112}
   - {fileID: 4877836961352285468}
   m_Bounds:
-    m_Center: {x: -0.0016634464, y: -0.00063347816, z: 0}
+    m_Center: {x: -0.0016634464, y: -0.0006335974, z: 0}
     m_Extent: {x: 0.99525636, y: 1.0343673, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 8544543213475231024}
   m_Layer: 0
   m_Name: LeftArm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1080,8 +1080,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 1
   m_Sprite: {fileID: -947285833220026468, guid: 787191fe9c553094185d92c06b020156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   - {fileID: 45460241216885112}
   - {fileID: 4554643705563812171}
   m_Bounds:
-    m_Center: {x: 0.44907948, y: -0.121935606, z: -0.0066224597}
+    m_Center: {x: 0.44907948, y: -0.12193549, z: -0.0066224597}
     m_Extent: {x: 0.36047697, y: 1.247651, z: 0.0062141167}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 1895780281618455431}
   m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1189,8 +1189,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 3
   m_Sprite: {fileID: 2494959485081700317, guid: 787191fe9c553094185d92c06b020156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1359,8 +1359,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 8
   m_Sprite: {fileID: -7208752578511724337, guid: 9703385264ba1d748bc763592d80b667, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 9007563311553319939}
   m_Layer: 0
   m_Name: RightArm
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1455,8 +1455,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 5
   m_Sprite: {fileID: 6266474564670712226, guid: 787191fe9c553094185d92c06b020156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1504,7 +1504,7 @@ GameObject:
   - component: {fileID: 2689917815272020108}
   m_Layer: 0
   m_Name: LeftArmIK
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 6060507520577526732}
   m_Layer: 0
   m_Name: Spine_Bone
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 3236893458894820062}
   m_Layer: 0
   m_Name: LeftLegIK
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 129680767486603594}
   m_Layer: 0
   m_Name: RightLegIK
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1792,7 +1792,7 @@ GameObject:
   - component: {fileID: 4090503662502141813}
   m_Layer: 0
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1848,8 +1848,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2132291169
-  m_SortingLayer: 12
+  m_SortingLayerID: 1601374891
+  m_SortingLayer: 18
   m_SortingOrder: 2
   m_Sprite: {fileID: -1877664824271529174, guid: 787191fe9c553094185d92c06b020156, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

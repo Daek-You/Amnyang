@@ -177,6 +177,7 @@ public class SujiController : MonoBehaviour
             return;
         }
 
+        Debug.Log("°È´Â ºÎºÐ");
         float walkValue = (hasControl && !isRunning) ? 0.5f : 0f;
         animator.SetFloat("Move", walkValue);
         _rigidBody.velocity = new Vector2(walkDirection * walkSpeed, _rigidBody.velocity.y);

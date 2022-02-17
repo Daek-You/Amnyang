@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HouseEntrance
   layers:
   - Default
   - TransparentFX
@@ -68,15 +69,45 @@ TagManager:
   - name: New Layer3
     uniqueID: 4171771353
     locked: 0
-  - name: FloorObject
+  - name: empty1
     uniqueID: 1615108363
     locked: 0
-  - name: Object
+  - name: empty2
     uniqueID: 48531461
     locked: 0
-  - name: Player
+  - name: empty3
     uniqueID: 2162676127
     locked: 0
-  - name: UI
+  - name: empty4
     uniqueID: 2513775447
+    locked: 0
+  - name: empty5
+    uniqueID: 2625660977
+    locked: 0
+  - name: Back_Grass
+    uniqueID: 1083155817
+    locked: 0
+  - name: EventObejct_OnRoad
+    uniqueID: 3504109311
+    locked: 0
+  - name: Object
+    uniqueID: 65671337
+    locked: 0
+  - name: Player
+    uniqueID: 1601374891
+    locked: 0
+  - name: Pillars
+    uniqueID: 3347211021
+    locked: 0
+  - name: 
+    uniqueID: 2973507229
+    locked: 0
+  - name: Front_Grass
+    uniqueID: 908454075
+    locked: 0
+  - name: UI
+    uniqueID: 2395476613
+    locked: 0
+  - name: 
+    uniqueID: 2253953961
     locked: 0
