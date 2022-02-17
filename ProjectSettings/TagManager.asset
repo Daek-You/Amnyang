@@ -93,7 +93,7 @@ TagManager:
   - name: Object
     uniqueID: 65671337
     locked: 0
-  - name: Player
+  - name: Charactor
     uniqueID: 1601374891
     locked: 0
   - name: Pillars
