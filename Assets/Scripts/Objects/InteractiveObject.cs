@@ -6,6 +6,8 @@ using UnityEngine;
 public class InteractiveObject : MonoBehaviour
 {
 
+    public SpriteRenderer hidingSprite;
+    public bool isDynamicHiddenSpace;        // 상호작용 요청한 시점의 플레이어 위치에 숨을 경우
     public ObjectType objectType;
     private SujiController suji;
     private string objectTag;
@@ -29,7 +31,7 @@ public class InteractiveObject : MonoBehaviour
 
         if (objectType == ObjectType.eCanHideObject)
         {
-            suji.Hide();
+            suji.Hide(hidingSprite, isDynamicHiddenSpace);
         }
 
         if(objectType == ObjectType.eItemObject)

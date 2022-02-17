@@ -35,14 +35,12 @@ public class SujiController : MonoBehaviour
         initScaleX = suji.localScale.x;
     }
 
-
     void Update()
     {
         walkDirection = Input.GetAxisRaw("Horizontal");
         hasControl = !Mathf.Approximately(walkDirection, 0f);
         isRunning = Input.GetButton("Run");
-
-        if(Input.GetButtonDown("Jump") && !isJumping)
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             Jump();
         }
@@ -53,13 +51,15 @@ public class SujiController : MonoBehaviour
         }
     }
 
+
     void FixedUpdate()
     {
         TurnOtherSide();
         Move();
     }
 
-    public void Hide()
+
+    public void Hide(SpriteRenderer hidingSprite, bool isDynamicHiddenSpace)
     {
         if (isJumping)
             return;
@@ -74,7 +74,73 @@ public class SujiController : MonoBehaviour
             isHiding = false;
             ControlEnableMyBody(true);
         }
+
+        OnOffHiddenSpritePlayer(hidingSprite, isDynamicHiddenSpace);
     }
+
+
+    private void Jump()
+    {
+        if (isHiding)
+            return;
+
+        isJumping = true;
+
+        if (!hasControl)
+        {
+            animator.SetBool("SargentJump", true);
+            Invoke("_Jump", JUMP_CHARGING_DELAY);
+        }
+        else
+        {
+            animator.SetBool("MoveJump", true);
+            _Jump();
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Jumpable_Floor") && isJumping)
+        {
+            if (animator.GetBool("SargentJump"))
+            {
+                animator.SetTrigger("Landing");
+                animator.SetBool("SargentJump", false);
+                StartCoroutine(LandingDelay());
+                return;
+            }
+            
+            animator.SetBool("MoveJump", false);
+            isJumping = false;
+        }
+    }
+
+
+    private void Move()
+    {
+        /* parameterValue => {0f : Idle}, {0.5f : Walk}, {1f : Run}  */
+
+        if (isJumping)
+            return;
+
+        Vector2 velocity = new Vector2(0f, _rigidBody.velocity.y);
+        float parameterValue = 0f;
+
+        if (!isHiding)
+        {
+            if (hasControl || (hasControl && isRunning))
+            {
+                float charMoveSpeed = isRunning ? walkSpeed * 2f : walkSpeed;
+                parameterValue = isRunning ? 1f : 0.5f;
+                velocity.Set(walkDirection * charMoveSpeed, _rigidBody.velocity.y);
+            }
+        }
+
+        animator.SetFloat("Move", parameterValue);
+        _rigidBody.velocity = velocity;
+    }
+
 
     private void Interaction()
     {
@@ -108,46 +174,24 @@ public class SujiController : MonoBehaviour
     }
 
 
-    private void Jump()
+    private void OnOffHiddenSpritePlayer(SpriteRenderer hidingSprite, bool isDynamicHiddenSpace)
     {
-        if (isHiding)
-            return;
-
-        isJumping = true;
-
-        if (!hasControl)
+        if (isDynamicHiddenSpace)
         {
-            animator.SetBool("SargentJump", true);
-            Invoke("_Jump", JUMP_CHARGING_DELAY);
+            hidingSprite.transform.position = new Vector3(this.transform.position.x,
+                                                          hidingSprite.transform.position.y,
+                                                          this.transform.position.z);
         }
-        else
-        {
-            animator.SetBool("MoveJump", true);
-            _Jump();
-        }
+
+        hidingSprite.gameObject.SetActive(IsHiding);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Jumpable_Floor") && isJumping)
-        {
-            if (animator.GetBool("SargentJump"))
-            {
-                animator.SetTrigger("Landing");
-                animator.SetBool("SargentJump", false);
-                StartCoroutine(LandingDelay());
-                return;
-            }
-            
-            animator.SetBool("MoveJump", false);
-            isJumping = false;
-        }
-    }
 
     private void _Jump()
     {
         _rigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
     }
+
 
     IEnumerator LandingDelay()
     {
@@ -155,33 +199,6 @@ public class SujiController : MonoBehaviour
         isJumping = false;
     }
 
-    private void Move()
-    {
-        /* 0f : Idle, 0.5f : Walk, 1f : Run  */
-
-        if (isJumping)
-            return;
-
-        if (isHiding)
-        {
-            animator.SetFloat("Move", 0f);
-            _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
-            return;
-        }
-
-
-        if (hasControl && isRunning)
-        {
-            animator.SetFloat("Move", 1f);
-            _rigidBody.velocity = new Vector2(walkDirection * walkSpeed * 2f, _rigidBody.velocity.y);
-            return;
-        }
-
-        Debug.Log("°È´Â ºÎºÐ");
-        float walkValue = (hasControl && !isRunning) ? 0.5f : 0f;
-        animator.SetFloat("Move", walkValue);
-        _rigidBody.velocity = new Vector2(walkDirection * walkSpeed, _rigidBody.velocity.y);
-    }
 
     private void TurnOtherSide()
     {
