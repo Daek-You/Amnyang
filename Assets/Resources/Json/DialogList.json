@@ -1,0 +1,23 @@
+﻿{
+  "DialogList": [
+    {
+      "Door": "꼭 밝혀내야해 아직은 들어갈 때가 아니야",
+      "DogHouse": "강아지의 빈자리가 느껴져...",
+      "MainDoor": "이제 출발해보자.",
+      "MainDoor2": "대문은 이미 열렸어 출발하자.",
+      "MailBox": "여차하면 숨을 수 있을 것 같아.",
+      "Truck": "옆집 아저씨가 타던 트럭이네.",
+      "discription": "불쾌하게 생긴 대문이야.",
+      "discription1": "문은 이미 열려있어.",
+      "discription2": "열쇠가 있어야 할 것같아.",
+      "discription3": "여기는 숨기에는 너무 좁아.",
+      "discription4": "아무것도 없다. 뭘 먹고 사는걸까?",
+      "discription5": "숨기에는 불안해 보인다.",
+      "discription6": "열쇠다.",
+      "discription7": "쌀이 잔뜩 들어있다.",
+      "discription8": "시끄러울 것 같다.",
+      "discription9": "물이 가득 받아져 있다.",
+      "discription10": "높아서 옆면만 보인다."
+    }
+  ]
+}
