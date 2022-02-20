@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using System.IO;
 using LitJson;
 
-public class DialogController : MonoBehaviour
+public class DialogCont : MonoBehaviour
 {
-    public static DialogController Instance = null;
+    public static DialogCont Instance = null;
     public Text dialog;
     public bool isDialog = false;
     private string dialogPath = "/Resources/Json/DialogList.json";

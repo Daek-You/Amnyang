@@ -28,7 +28,7 @@ public class InteractiveObject : MonoBehaviour
             /// TextManager에서는 이 태그를 key로 하여, 거기에 대응되는 텍스트(value)를 가져오면 됨.
             /// 싱글톤(Singleton) 패턴으로 구현하면 좋을 듯하다.
             /// 
-            StartCoroutine(DialogController.Instance.FadeDialogInAndOut(objectTag));
+            StartCoroutine(DialogCont.Instance.FadeDialogInAndOut(objectTag));
         }
 
         if (objectType == ObjectType.eCanHideObject)

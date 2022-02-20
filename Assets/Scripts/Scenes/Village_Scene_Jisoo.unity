@@ -5360,7 +5360,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2136292411}
   - component: {fileID: 2136292410}
-  - component: {fileID: 2136292412}
   m_Layer: 0
   m_Name: DialogController
   m_TagString: Untagged
@@ -5377,9 +5376,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2136292409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b794fa4535964e49a452f212a7ece34, type: 3}
+  m_Script: {fileID: 11500000, guid: 995079194f9e5a24db4e1962df87b819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialog: {fileID: 167940603}
+  isDialog: 0
 --- !u!4 &2136292411
 Transform:
   m_ObjectHideFlags: 0
@@ -5394,20 +5395,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2136292412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136292409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb78efd0b3723b40a628714dccd5c91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 167940603}
-  isDialog: 0
 --- !u!1001 &2140284177
 PrefabInstance:
   m_ObjectHideFlags: 0
