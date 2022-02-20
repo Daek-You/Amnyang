@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - HouseEntrance
+  - Door
+  - DogHouse
+  - MailBox
+  - Truck
+  - Shrine
   layers:
   - Default
   - TransparentFX
