@@ -31,8 +31,8 @@ public class Chase : MonoBehaviour
             {
                 // 수지 추격을 시작
                 ChaseState state = ChaseState.GetInstance();
-                enemy.StateMachine.SetState(enemy, state);
                 state.SetTarget(collision.gameObject.transform);
+                enemy.StateMachine.SetState(enemy, state);
             }
         }
     }

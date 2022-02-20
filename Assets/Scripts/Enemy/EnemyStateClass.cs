@@ -89,10 +89,12 @@ public class ChaseState : IState
     private static ChaseState Instance = new ChaseState();
     private Transform target;
     private float findStartTime;
-    SujiController suji;
+    private float findingTime;
+    private SujiController suji;
+    private bool isStartTimer = false;
+    private bool isCheckAround = false;
 
     private ChaseState() { }
-    
     
 
     public static ChaseState GetInstance()
@@ -102,35 +104,54 @@ public class ChaseState : IState
 
     public void StateEnter(Enemy enemy)
     {
+        enemy.suji = suji;
         enemy.StartCoroutine("Wait", false);
+        findingTime = Random.Range(10, 16);
     }
 
 
 
     public void StateFixedUpdate(Enemy enemy)
     {
-        if(target != null && enemy.IsCanChase)
+        if(enemy != null)
         {
+            if (enemy.IsCanChase && suji.IsHiding && !isCheckAround)
+            {
+                enemy.ThinkNextMovingRepeat();
+                isCheckAround = true;
+            }
             enemy.Chase(target);
         }
     }
 
     public void StateUpdate(Enemy enemy)
     {
-
-        if(enemy.StateMachine.currentState == this && suji.IsHiding)
+        if (suji.IsHiding && enemy.IsCanChase)
         {
-            findStartTime = Time.time;
+            if (!isStartTimer)
+            {
+                findStartTime = Time.time;
+                isStartTimer = true;
+            }
+
+            float currentTime = Time.time;
+            if (currentTime >= findStartTime + findingTime)
+            {
+                enemy.StateMachine.SetState(enemy, Idle.GetInstance());
+            }
         }
 
-
+ 
     }
 
     public void StateExit(Enemy enemy)
     {
         enemy.ChangeMode(false);
+        enemy.CancleThinking();
+        enemy.IsCanChase = false;
+        isCheckAround = false;
+        isStartTimer = false;
         target = null;
-
     }
 
     public void SetTarget(Transform target)

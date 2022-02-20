@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public StateMachine StateMachine { get { return _stateMachine; } }
     public Animator Animator { get { return _animator; } }
     public Light2D _haloLight;
+    public SujiController suji { get; set; }
     public bool IsCanChase { get; set; } = false;
 
 
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
     private const string CHASEMODE_LAYER = "ChaseMode_Enemy";
     private const string NORMALMODE_LAYER = "Normal_Enemy";
     private Color normalEnemyColor;
+
 
 
     void Start()
@@ -67,7 +69,7 @@ public class Enemy : MonoBehaviour
     {
         _animator.SetBool("isWalk", false);
         moveDirection = 0;
-        CancelInvoke();
+        CancelInvoke("ThinkNextMovingRepeat");
     }
 
     public void Move()
@@ -82,31 +84,26 @@ public class Enemy : MonoBehaviour
 
     public void FeelStrangeAround()
     {
-        StopCoroutine("Wait");
         StartCoroutine("Wait", true);
     }
 
     public void Chase(Transform target)
     {
-        SujiController suji = target.gameObject.GetComponent<SujiController>();
-        bool isFind = (target != null && !suji.IsHiding);
-
-        if (isFind && StateMachine.currentState == ChaseState.GetInstance())
+        if (target != null && IsCanChase)
         {
+
             int targetDirection = CompareToTargetDirection(this.transform.position.x, target.position.x);
-            LookAt(targetDirection, true);
+            if (!suji.IsHiding)
+            {
+                LookAt(targetDirection, true);
+                moveDirection = targetDirection;
+            }
 
-            _rigidBody.velocity = new Vector2(targetDirection * moveSpeed * 4.5f, _rigidBody.velocity.y);
+            TurnAround(false);
+            _animator.SetBool("isWalk", moveDirection != 0);
             _animator.SetFloat("WalkMultiplier", 2f);
-            _animator.SetBool("isWalk", true);
+            _rigidBody.velocity = new Vector2(moveDirection * moveSpeed * 3.5f, _rigidBody.velocity.y);
         }
-
-        else
-        {
-            _animator.SetFloat("WalkMultiplier", 1f);
-            _animator.SetBool("isWalk", false);
-        }
-
     }
 
 
@@ -168,8 +165,6 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
-
 
     IEnumerator Wait(bool isFeelStrangeMode)
     {
