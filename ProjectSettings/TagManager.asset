@@ -14,8 +14,8 @@ TagManager:
   - UI
   - Jumpable_Floor
   - 
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -93,21 +93,27 @@ TagManager:
   - name: Object
     uniqueID: 65671337
     locked: 0
-  - name: Charactor
+  - name: 
     uniqueID: 1601374891
     locked: 0
-  - name: Pillars
+  - name: Normal_Enemy
     uniqueID: 3347211021
     locked: 0
-  - name: 
+  - name: ChaseMode_Enemy
     uniqueID: 2973507229
     locked: 0
-  - name: Front_Grass
+  - name: Player
     uniqueID: 908454075
     locked: 0
-  - name: UI
+  - name: Pillars
     uniqueID: 2395476613
     locked: 0
-  - name: 
+  - name: Front_Grass
     uniqueID: 2253953961
+    locked: 0
+  - name: 
+    uniqueID: 3616732827
+    locked: 0
+  - name: UI
+    uniqueID: 1438417231
     locked: 0
