@@ -4,8 +4,8 @@ namespace ObjectState
     public enum ObjectType
     {
         eCanHideObject = 1,
-        eTextPrintObject = 2,
-        eItemObject = 3,
-        eDoorObject = 4,
+        eItemObject = 2,
+        eDoorObject = 3,
+        eSimpleEventObject = 4,
     }
 }
