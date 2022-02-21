@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - HouseEntrance
+  - Shrine
+  - SujiHouseDoor
+  - SujiHouseGate
+  - Shaman_MainRoomDoor
+  - Shaman_BathroomDoor
+  - DogHouse
+  - Mailbox
+  - Truck
+  - Shaman_KitchenDoor
   layers:
   - Default
   - TransparentFX
