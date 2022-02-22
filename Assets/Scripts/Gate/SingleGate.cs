@@ -37,6 +37,7 @@ public class SingleGate : AbstractGate
         {
             case "SujiHouseDoor":
                 /// "꼭 밝혀내야 해. 아직은 들어갈 때가 아니야" 텍스트 출력 요청
+                DialogCont.Instance.ShowDialog(tag);
                 break;
 
             case "SujiHouseGate":
@@ -44,6 +45,11 @@ public class SingleGate : AbstractGate
                 {
                     /// "이제 출발해보자." 텍스트 출력 요청
                     StartCoroutine(Open());
+                    DialogCont.Instance.ShowDialog(tag, _isOpen);
+                }
+                else
+                {
+                    DialogCont.Instance.ShowDialog(tag, _isOpen);
                 }
                 break;
 

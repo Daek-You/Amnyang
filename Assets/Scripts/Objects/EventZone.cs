@@ -7,7 +7,12 @@ public class EventZone : MonoBehaviour
 
     public bool isOneTimeEvent;
     private bool checkSwitch = false;
+    private string objectTag;
 
+    void Start()
+    {
+        objectTag = this.gameObject.tag;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +21,7 @@ public class EventZone : MonoBehaviour
             if (isOneTimeEvent && !checkSwitch)  // 일회성 이벤트일 경우
             {
                 ///Text.Mananger에게 텍스트 출력 요청
+                DialogCont.Instance.ShowDialog(tag);
                 checkSwitch = true;
             }
 

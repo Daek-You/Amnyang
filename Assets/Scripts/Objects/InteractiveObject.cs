@@ -26,7 +26,8 @@ public class InteractiveObject : MonoBehaviour
         {
             case (int)ObjectType.eSimpleEventObject:
                 /// TextMangaer에게 태그 이름을 인자로 하여 출력 요청
-                
+                DialogCont.Instance.ShowDialog(objectTag);
+
                 break;
 
             case (int)ObjectType.eCanHideObject:

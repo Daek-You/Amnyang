@@ -41,12 +41,13 @@ public class DualGate : AbstractGate
             case "HouseEntrance":
                 if (!_isOpen)
                 {
-                    /// "불쾌하게 생긴 대문이야" 텍스트 출력 요청
+                    /// "불쾌하게 생긴 대문이야" 텍스트 출력 요청 -> OnEvent에서 처리
                     StartCoroutine(Open());
                 }
 
                 else
                 {
+                    DialogCont.Instance.ShowDialog(tag, _isOpen);
                     /// "문은 이미 열려있어" 텍스트 출력 요청
                 }
                 break;
@@ -54,8 +55,8 @@ public class DualGate : AbstractGate
             case "Shrine":
                 if(!_isOpen && !GameDataManager.Instance.hasShrineKey)
                 {
-                    Debug.Log("열쇠가 있어야 할 것 같아.");
                     /// "열쇠가 있어야 할 것 같아" 텍스트 출력 요청
+                    DialogCont.Instance.ShowDialog(tag);
                 }
 
                 else if (!_isOpen && GameDataManager.Instance.hasShrineKey)
