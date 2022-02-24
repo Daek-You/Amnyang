@@ -14,6 +14,8 @@ TagManager:
   - Mailbox
   - Truck
   - Shaman_KitchenDoor
+  - MailBox
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -54,7 +56,7 @@ TagManager:
   - name: BackGround
     uniqueID: 1367877839
     locked: 0
-  - name: 1
+  - name: NotLightBG
     uniqueID: 2106777933
     locked: 0
   - name: 2

@@ -81,7 +81,6 @@ public class Enemy : MonoBehaviour
         _rigidBody.velocity = new Vector2(moveDirection * moveSpeed, _rigidBody.velocity.y);
     }
 
-
     public void FeelStrangeAround()
     {
         StartCoroutine("Wait", true);

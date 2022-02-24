@@ -6,9 +6,9 @@ using UnityEngine;
 public class InteractiveObject : MonoBehaviour
 {
 
-    public SpriteRenderer hidingSprite;
-    public bool isDynamicHiddenSpace;        // 상호작용 요청한 시점의 플레이어 위치에 숨을 경우
-    public ObjectType objectType;
+    [SerializeField] private SpriteRenderer hidingSprite;
+    [SerializeField] private bool isDynamicHiddenSpace;        // 상호작용 요청한 시점의 플레이어 위치에 숨을 경우
+    [SerializeField] private ObjectType objectType;
     private SujiController suji;
     private string objectTag;
 
@@ -25,8 +25,7 @@ public class InteractiveObject : MonoBehaviour
         switch ((int)objectType)
         {
             case (int)ObjectType.eSimpleEventObject:
-                /// TextMangaer에게 태그 이름을 인자로 하여 출력 요청
-                DialogCont.Instance.ShowDialog(objectTag);
+                DialogController.Instance.ShowDialog(objectTag);
 
                 break;
 
@@ -53,6 +52,7 @@ public class InteractiveObject : MonoBehaviour
         }
     }
 
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -66,6 +66,14 @@ public class InteractiveObject : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            suji.InteractiveObject = this;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -73,7 +81,6 @@ public class InteractiveObject : MonoBehaviour
             if (suji != null)
             {
                 suji.InteractiveObject = null;
-                suji = null;
             }
         }
     }

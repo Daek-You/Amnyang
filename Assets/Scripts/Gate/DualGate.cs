@@ -47,7 +47,7 @@ public class DualGate : AbstractGate
 
                 else
                 {
-                    DialogCont.Instance.ShowDialog(tag, _isOpen);
+                    DialogController.Instance.ShowDialog(tag, _isOpen);
                     /// "문은 이미 열려있어" 텍스트 출력 요청
                 }
                 break;
@@ -56,7 +56,7 @@ public class DualGate : AbstractGate
                 if(!_isOpen && !GameDataManager.Instance.hasShrineKey)
                 {
                     /// "열쇠가 있어야 할 것 같아" 텍스트 출력 요청
-                    DialogCont.Instance.ShowDialog(tag);
+                    DialogController.Instance.ShowDialog(tag);
                 }
 
                 else if (!_isOpen && GameDataManager.Instance.hasShrineKey)
