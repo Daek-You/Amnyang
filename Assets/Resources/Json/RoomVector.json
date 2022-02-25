@@ -1,0 +1,19 @@
+﻿{
+  "List": {
+    "Shaman_KitchenDoor": {
+      "x": 177,
+      "y" :-200,
+      "z" : 0
+    },
+    "Shaman_MainRoomDoor_Hidden": {
+      "x": -108,
+      "y": -95,
+      "z": 0
+    },
+    "Shaman_BathroomDoor_Hidden": {
+      "x": -108,
+      "y": -260,
+      "z": 0
+    }
+  }
+}

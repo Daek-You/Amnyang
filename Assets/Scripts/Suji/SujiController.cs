@@ -27,6 +27,7 @@ public class SujiController : MonoBehaviour
     private bool isHiding;
 
 
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -49,6 +50,7 @@ public class SujiController : MonoBehaviour
         {
             Interaction();
         }
+
     }
 
 
@@ -213,5 +215,10 @@ public class SujiController : MonoBehaviour
         var scaleZ = suji.localScale.z;
 
         suji.localScale = new Vector3(-scaleX, scaleY, scaleZ);
+    }
+
+    public void MoveAnotherRoom(Vector2 roomVector)
+    {
+        transform.position = roomVector;
     }
 }

@@ -47,7 +47,6 @@ public class InteractiveObject : MonoBehaviour
 
                 if (gate != null)
                     gate.OnEvent(objectTag);
-
                 break;
         }
     }

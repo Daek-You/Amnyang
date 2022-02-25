@@ -13,14 +13,15 @@ public abstract class AbstractGate : MonoBehaviour
     protected const float FLOAT_APPROXIMATLEY = 2f;
     protected bool _isOpen = false;
 
-    private Collider2D gateGoalKeeper;
-    private WaitForSeconds gatePassWaitTime = new WaitForSeconds(0.5f);
 
+    //private Collider2D gateGoalKeeper;
+    public Collider2D gateGoalKeeper;
+    private WaitForSeconds gatePassWaitTime = new WaitForSeconds(0.5f);
 
 
     protected void Start()
     {
-        gateGoalKeeper = GetComponentInChildren<Collider2D>();
+        //gateGoalKeeper = GetComponentInChildren<Collider2D>();
     }
 
 

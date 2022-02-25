@@ -7,9 +7,15 @@ public class SingleGate : AbstractGate
 
     public GameObject doorAxis;
 
+    public SujiController suji;
+    public GameObject ShamanMainRoomDoorHidden;
+    public GameObject ShamanBathroomDoorHidden;
 
+    private Vector2 roomVector;
     protected override IEnumerator Open()
     {
+
+        
         if(doorAxis != null)
         {
             StartCoroutine(GatePassDelay());
@@ -33,6 +39,7 @@ public class SingleGate : AbstractGate
 
     public override void OnEvent(string tag)
     {
+        
         switch (tag)
         {
             case "SujiHouseDoor":
@@ -60,13 +67,31 @@ public class SingleGate : AbstractGate
                 break;
 
             case "Shaman_MainRoomDoor":
-                StartCoroutine(Open());
-
+                if (_isOpen == false) 
+                {
+                    StartCoroutine(Open());
+                    ShamanMainRoomDoorHidden.SetActive(true);
+                }
                 break;
 
             case "Shaman_BathroomDoor":
-                StartCoroutine(Open());
+                if (_isOpen == false)
+                {
+                    StartCoroutine(Open());
+                    ShamanBathroomDoorHidden.SetActive(true);
+                }
+                break;
 
+            case "Shaman_MainRoomDoor_Hidden":
+                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+                FadeInOutController.Instance.FadeIn(true);
+                suji.MoveAnotherRoom(roomVector);
+                break;
+
+            case "Shaman_BathroomDoor_Hidden":
+                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+                FadeInOutController.Instance.FadeIn(false);
+                suji.MoveAnotherRoom(roomVector);
                 break;
         }
     }

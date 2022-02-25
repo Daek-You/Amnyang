@@ -16,6 +16,8 @@ TagManager:
   - Shaman_KitchenDoor
   - MailBox
   - Door
+  - Shaman_MainRoomDoor_Hidden
+  - Shaman_BathroomDoor_Hidden
   layers:
   - Default
   - TransparentFX

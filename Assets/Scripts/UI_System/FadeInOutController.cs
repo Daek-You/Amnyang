@@ -36,6 +36,7 @@ public class FadeInOutController : MonoBehaviour
     void Start()
     {
         canvas = GetComponentInChildren<Canvas>();
+        StartCoroutine(FadeInCoroutine(false));
     }
 
     public void FadeIn(bool isSlow)
@@ -55,7 +56,7 @@ public class FadeInOutController : MonoBehaviour
     {
         float fadeValue = 1f;
 
-        while(fadeValue > 0f)
+        while (fadeValue > 0f)
         {
 
             float value = isSlow ? SLOW_FADE_VALUE : FADE_VALUE;
@@ -64,7 +65,6 @@ public class FadeInOutController : MonoBehaviour
             blackIMG.color = new Color(0f, 0f, 0f, fadeValue);
         }
 
-        canvas.gameObject.SetActive(false);
         IsFinished = true;
     }
 
@@ -81,7 +81,6 @@ public class FadeInOutController : MonoBehaviour
             blackIMG.color = new Color(0f, 0f, 0f, fadeValue);
         }
 
-        canvas.gameObject.SetActive(true);
         IsFinished = true;
     }
 }
