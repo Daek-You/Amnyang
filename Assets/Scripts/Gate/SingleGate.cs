@@ -93,6 +93,34 @@ public class SingleGate : AbstractGate
                 FadeInOutController.Instance.FadeIn(false);
                 suji.MoveAnotherRoom(roomVector);
                 break;
+
+            case "Shaman_OutsideDoor_Hidden":
+                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+                FadeInOutController.Instance.FadeIn(false);
+                suji.MoveAnotherRoom(roomVector);
+                break;
+            case "Shaman_WarehouseDoor_Hidden":
+                if (GameDataManager.Instance.IsKeyOn(tag))          //키가 있으면
+                {
+                    roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+                    FadeInOutController.Instance.FadeIn(false);
+                    suji.MoveAnotherRoom(roomVector);
+                }
+                else
+                {
+                    DialogController.Instance.ShowDialog(tag + "NoKey");
+                }
+                break;
+            case "Shaman_From_Warehouse_To_MainRoom_Hidden":
+                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+                FadeInOutController.Instance.FadeIn(false);
+                suji.MoveAnotherRoom(roomVector);
+                break;
+            case "Shaman_OutsideDoor_From_Bath_Hidden":
+                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+                FadeInOutController.Instance.FadeIn(true);
+                suji.MoveAnotherRoom(roomVector);
+                break;
         }
     }
 }

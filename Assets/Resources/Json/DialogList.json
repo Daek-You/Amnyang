@@ -8,7 +8,6 @@
     "Truck": "옆집 아저씨가 타던 트럭이네.",
     "HouseEntrance": "불쾌하게 생긴 대문이야.",
     "HouseEntrance2": "문은 이미 열려있어.",
-    "Shrine": "열쇠가 있어야 할 것같아.",
     "Shaman_KitchenDoor": "잠겨있다.",
     "9": "여기는 숨기에는 너무 좁아.",
     "10": "아무것도 없다. 뭘 먹고 사는걸까?",
@@ -17,6 +16,12 @@
     "13": "쌀이 잔뜩 들어있다.",
     "14": "시끄러울 것 같다.",
     "15": "물이 가득 받아져 있다.",
-    "16": "높아서 옆면만 보인다."
+    "16": "높아서 옆면만 보인다.",
+    "Shrine": "사당으로 가는 열쇠를 얻었다.",
+    "Shaman_WarehouseDoor_Hidden": "창고로 가는 열쇠를 얻었다.",
+    "ShrineNoKey": "사당으로 가는 열쇠가 필요해.",
+    "Shaman_WarehouseDoor_HiddenNoKey": "창고로 가는 열쇠가 필요해.",
+    "Shrinealready": "사당으로 가는 열쇠는 이미 얻었어.",
+    "Shaman_WarehouseDoor_Hiddenalready": "창고로 가는 열쇠는 이미 얻었어."
   }
 }

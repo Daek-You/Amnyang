@@ -116,6 +116,11 @@ public class SujiController : MonoBehaviour
             animator.SetBool("MoveJump", false);
             isJumping = false;
         }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Item"))
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 
 

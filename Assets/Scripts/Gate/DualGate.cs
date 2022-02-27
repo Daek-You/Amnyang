@@ -56,7 +56,10 @@ public class DualGate : AbstractGate
                 if(!_isOpen && !GameDataManager.Instance.hasShrineKey)
                 {
                     /// "열쇠가 있어야 할 것 같아" 텍스트 출력 요청
-                    DialogController.Instance.ShowDialog(tag);
+                    if (!GameDataManager.Instance.IsKeyOn(tag))
+                        DialogController.Instance.ShowDialog(tag+"NoKey");
+                    else
+                        StartCoroutine(Open());
                 }
 
                 else if (!_isOpen && GameDataManager.Instance.hasShrineKey)

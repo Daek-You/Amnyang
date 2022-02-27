@@ -18,6 +18,12 @@ TagManager:
   - Door
   - Shaman_MainRoomDoor_Hidden
   - Shaman_BathroomDoor_Hidden
+  - Shaman_OutsideDoor_Hidden
+  - Shaman_WarehouseDoor_Hidden
+  - Shaman_OutsideDoor_From_Bath_Hidden
+  - Drawer
+  - Shaman_From_Warehouse_To_MainRoom_Hidden
+  - Shaman_ShrineDoor_Hidden
   layers:
   - Default
   - TransparentFX
@@ -29,7 +35,7 @@ TagManager:
   - 
   - Enemy
   - Player
-  - 
+  - Item
   - 
   - 
   - 
@@ -114,6 +120,12 @@ TagManager:
     locked: 0
   - name: ChaseMode_Enemy
     uniqueID: 2973507229
+    locked: 0
+  - name: Normal_Shaman
+    uniqueID: 3109013051
+    locked: 0
+  - name: ChaseMode_Shaman
+    uniqueID: 3617620241
     locked: 0
   - name: Player
     uniqueID: 908454075

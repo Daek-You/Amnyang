@@ -1,18 +1,60 @@
 ﻿{
   "List": {
-    "Shaman_KitchenDoor": {
-      "x": 177,
-      "y" :-200,
-      "z" : 0
-    },
     "Shaman_MainRoomDoor_Hidden": {
-      "x": -108,
-      "y": -95,
+      "x": 155,
+      "y": -119.3663,
+      "z": 0
+    },
+    "Shaman_WarehouseDoor_Hidden": {
+      "x": 293.1,
+      "y": -298.1207,
       "z": 0
     },
     "Shaman_BathroomDoor_Hidden": {
-      "x": -108,
-      "y": -260,
+      "x": 156.1424,
+      "y": -479.4307,
+      "z": 0
+    },
+    "Shaman_OutsideDoor_Hidden": {
+      "x": 61.63525,
+      "y": 4.423032,
+      "z": 0
+    },
+    "Shaman_OutsideDoor_From_Bath_Hidden": {
+      "x": 73.9432,
+      "y": 4.423032,
+      "z": 0
+    },
+    "Shaman_From_Warehouse_To_MainRoom_Hidden": {
+      "x": 255,
+      "y": -119.3663,
+      "z": 0
+    },
+
+
+    "Shaman_OutsideDoor_Hidden(Shaman)": {
+      "x": 56.8,
+      "y": -0.7330189,
+      "z": 0
+    },
+    "Shaman_MainRoomDoor_Hidden1(Shaman)": {
+      "x": 149.6647,
+      "y": -124.5223,
+      "z": 0
+    },
+    "Shaman_MainRoomDoor_Hidden2(Shaman)": {
+      "x": 245.3143,
+      "y": -124.5223,
+      "z": 0
+    },
+    "Shaman_WarehouseDoor_Hidden(Shaman)": {
+      "x": 287.6,
+      "y": -303.2767,
+      "z": 0
+    },
+    "Shaman_BathroomDoor_Hidden(Shaman)": {
+      "x": 148.1,
+      "y": -484.5867,
       "z": 0
     }
   }
