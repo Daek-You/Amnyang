@@ -6,20 +6,18 @@ public class SingleGate : AbstractGate
 {
 
     public GameObject doorAxis;
-
     public SujiController suji;
-    public GameObject ShamanMainRoomDoorHidden;
-    public GameObject ShamanBathroomDoorHidden;
-
     private Vector2 roomVector;
+
     protected override IEnumerator Open()
     {
-
-        
-        if(doorAxis != null)
+        if (doorAxis != null)
         {
-            StartCoroutine(GatePassDelay());
+            if (_isOpening)
+                yield break;
 
+            StartCoroutine(GatePassDelay());
+            _isOpening = true;
 
             while (true)
             {
@@ -34,93 +32,106 @@ public class SingleGate : AbstractGate
             }
 
             _isOpen = true;
+            _isOpening = false;
         }
     }
 
     public override void OnEvent(string tag)
     {
-        
+
+
         switch (tag)
         {
             case "SujiHouseDoor":
-                /// "꼭 밝혀내야 해. 아직은 들어갈 때가 아니야" 텍스트 출력 요청
                 DialogController.Instance.ShowDialog(tag);
-                break;
+                return;
 
             case "SujiHouseGate":
                 if (!_isOpen)
-                {
-                    /// "이제 출발해보자." 텍스트 출력 요청
                     StartCoroutine(Open());
-                    DialogController.Instance.ShowDialog(tag, _isOpen);
-                }
-                else
-                {
-                    DialogController.Instance.ShowDialog(tag, _isOpen);
-                }
-                break;
 
-            case "Shaman_KitchenDoor":
-                StartCoroutine(Open());
+                DialogController.Instance.ShowDialog(tag, _isOpen);
+                return;
 
-
-                break;
 
             case "Shaman_MainRoomDoor":
-                if (_isOpen == false) 
-                {
-                    StartCoroutine(Open());
-                    ShamanMainRoomDoorHidden.SetActive(true);
-                }
-                break;
-
             case "Shaman_BathroomDoor":
-                if (_isOpen == false)
+            case "Village":
+                if (!_isOpen)
                 {
                     StartCoroutine(Open());
-                    ShamanBathroomDoorHidden.SetActive(true);
+                    break;
                 }
-                break;
 
-            case "Shaman_MainRoomDoor_Hidden":
-                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
-                FadeInOutController.Instance.FadeIn(true);
-                suji.MoveAnotherRoom(roomVector);
-                break;
-
-            case "Shaman_BathroomDoor_Hidden":
                 roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                 FadeInOutController.Instance.FadeIn(false);
                 suji.MoveAnotherRoom(roomVector);
+                CameraManager.Instance.tagKeyName = tag;
                 break;
 
-            case "Shaman_OutsideDoor_Hidden":
-                roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
-                FadeInOutController.Instance.FadeIn(false);
-                suji.MoveAnotherRoom(roomVector);
-                break;
-            case "Shaman_WarehouseDoor_Hidden":
-                if (GameDataManager.Instance.IsKeyOn(tag))          //키가 있으면
+
+            case "Shaman_WarehouseDoor":
+                if (GameDataManager.Instance.IsKeyOn(tag))
                 {
+                    if (!_isOpen)
+                    {
+                        StartCoroutine(Open());
+                        break;
+                    }
+
                     roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                     FadeInOutController.Instance.FadeIn(false);
                     suji.MoveAnotherRoom(roomVector);
+                    CameraManager.Instance.tagKeyName = tag;
                 }
                 else
                 {
                     DialogController.Instance.ShowDialog(tag + "NoKey");
                 }
                 break;
+
+            //case "Shaman_OutsideDoor_Hidden":
+            //    roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
+            //    FadeInOutController.Instance.FadeIn(false);
+            //    suji.MoveAnotherRoom(roomVector);
+            //    break;
+
             case "Shaman_From_Warehouse_To_MainRoom_Hidden":
+                if (!_isOpen)
+                {
+                    StartCoroutine(Open());
+                    break;
+                }
+
                 roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                 FadeInOutController.Instance.FadeIn(false);
                 suji.MoveAnotherRoom(roomVector);
+                CameraManager.Instance.tagKeyName = CameraManager.Instance.MAINROON;
                 break;
+
             case "Shaman_OutsideDoor_From_Bath_Hidden":
+                if (!_isOpen)
+                {
+                    StartCoroutine(Open());
+                    break;
+                }
+
                 roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                 FadeInOutController.Instance.FadeIn(true);
                 suji.MoveAnotherRoom(roomVector);
+                CameraManager.Instance.tagKeyName = CameraManager.Instance.VILLAGE;
                 break;
         }
+
+        if(_isOpen)
+            CloseDoor();
+    }
+
+    private void CloseDoor()
+    {
+        doorAxis.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x,
+                                                     0f,
+                                                     this.transform.eulerAngles.z);
+        _isOpen = false;
     }
 }

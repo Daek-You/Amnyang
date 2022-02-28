@@ -37,20 +37,18 @@ public class InteractiveObject : MonoBehaviour
                 break;
 
             case (int)ObjectType.eItemObject:
-                /// GameDataManager 오브젝트를 만들어서, 이 오브젝트의 아이템 데이터를 전달하여 저장
-                /// 역시, 싱글톤 패턴으로 구현하면 좋을 듯
-                /// ex) 열쇠를 먹기 전 : key = 0     /  열쇠 먹은 후 : key = 1
-                if (GameDataManager.Instance.IsKeyOn(tag) == false)     /// 아직 키를 갖고있지 않으면
+                if (!GameDataManager.Instance.IsKeyOn(objectTag))                 
                 {
-                    GameDataManager.Instance.GetKey(tag);               /// 키 = 1;
-                    DialogController.Instance.ShowDialog(tag);          /// 키를 얻었다.
+                    GameDataManager.Instance.GetKey(objectTag);                   
+                    DialogController.Instance.ShowDialog(objectTag);              
                     Key.SetActive(true);
                 }
                 else
                 {
-                    DialogController.Instance.ShowDialog(tag + "already");/// 이미 키를 갖고있어.
+                    DialogController.Instance.ShowDialog(objectTag + "Already");
                 }
                 break;
+
 
             case (int)ObjectType.eDoorObject:
                 AbstractGate gate = GetComponentInChildren<AbstractGate>();

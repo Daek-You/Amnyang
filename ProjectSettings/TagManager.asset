@@ -24,6 +24,9 @@ TagManager:
   - Drawer
   - Shaman_From_Warehouse_To_MainRoom_Hidden
   - Shaman_ShrineDoor_Hidden
+  - Village
+  - Shaman_WarehouseDoor
+  - WarehouseKey
   layers:
   - Default
   - TransparentFX

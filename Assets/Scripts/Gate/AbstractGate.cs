@@ -5,25 +5,18 @@ using UnityEngine;
 
 public abstract class AbstractGate : MonoBehaviour
 {
+
     public bool IsOpen { get { return _isOpen; } }
 
     protected float rotateSpeed = 2f;
     protected const float MIN_ANGLE = 0f;
     protected const float MAX_ANGLE = 90f;
     protected const float FLOAT_APPROXIMATLEY = 2f;
+    protected const string DEFALUT_TAGNAME = "Village";
     protected bool _isOpen = false;
-
-
-    //private Collider2D gateGoalKeeper;
-    public Collider2D gateGoalKeeper;
+    protected bool _isOpening = false;
     private WaitForSeconds gatePassWaitTime = new WaitForSeconds(0.5f);
-
-
-    protected void Start()
-    {
-        //gateGoalKeeper = GetComponentInChildren<Collider2D>();
-    }
-
+    [SerializeField] private Collider2D gateCollider;
 
 
     protected abstract IEnumerator Open();
@@ -45,9 +38,16 @@ public abstract class AbstractGate : MonoBehaviour
     {
         yield return gatePassWaitTime;
 
-        if (!_isOpen && gateGoalKeeper != null)
+        if (gateCollider.isTrigger || gateCollider == null)
         {
-            gateGoalKeeper.gameObject.SetActive(false);
+            /// 문이 잠겨서 못 지나가는 용이 아닌, 상호작용을 위한 콜라이더이므로
+            yield break;
+        }
+
+
+        if (!_isOpen)
+        {
+            gateCollider.gameObject.SetActive(false);
         }
     }
 }

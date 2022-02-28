@@ -1,22 +1,22 @@
 ﻿{
   "List": {
-    "Shaman_MainRoomDoor_Hidden": {
+    "Shaman_MainRoomDoor": {
       "x": 155,
       "y": -119.3663,
       "z": 0
     },
-    "Shaman_WarehouseDoor_Hidden": {
+    "Shaman_WarehouseDoor": {
       "x": 293.1,
       "y": -298.1207,
       "z": 0
     },
-    "Shaman_BathroomDoor_Hidden": {
+    "Shaman_BathroomDoor": {
       "x": 156.1424,
       "y": -479.4307,
       "z": 0
     },
-    "Shaman_OutsideDoor_Hidden": {
-      "x": 61.63525,
+    "Village": {    // 무당집 외부로 나올 때 MainRoom, Bathroom 하나로 그냥 합침
+      "x": 68.63525,
       "y": 4.423032,
       "z": 0
     },

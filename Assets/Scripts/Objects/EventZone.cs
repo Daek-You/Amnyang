@@ -20,8 +20,7 @@ public class EventZone : MonoBehaviour
         {
             if (isOneTimeEvent && !checkSwitch)  // 일회성 이벤트일 경우
             {
-                ///Text.Mananger에게 텍스트 출력 요청
-                DialogController.Instance.ShowDialog(tag);
+                DialogController.Instance.ShowDialog(objectTag);
                 checkSwitch = true;
             }
 
@@ -29,7 +28,6 @@ public class EventZone : MonoBehaviour
             {
                 
             }
-
         }
     }
 }

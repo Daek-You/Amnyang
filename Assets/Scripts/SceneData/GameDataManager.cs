@@ -7,7 +7,6 @@ public class GameDataManager : MonoBehaviour
 
     public static GameDataManager Instance { get { return _instance; } }
     private static GameDataManager _instance = null;
-    public bool hasShrineKey { get; set; } = false;
 
     public SujiController suji;
     public Shaman shaman;
@@ -17,15 +16,23 @@ public class GameDataManager : MonoBehaviour
     public bool isAreTheyInTheSamePlace;
     public string sujiLocation;
 
-    public int warehouseKey = 0;
-    public int shrineKey = 0;
+    public bool hasShrineKey { get; set; } = false;
+    public bool hasWarehouseKey { get; set; } = false;
+
+
     void Awake()
     {
         if(_instance == null)
         {
             _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            return;
         }
+
+        DestroyImmediate(this.gameObject);
     }
+
+
 
     private void Update()
     {
@@ -49,41 +56,25 @@ public class GameDataManager : MonoBehaviour
 
     public void GetKey(string tag)
     {
-        if (tag == "Shaman_WarehouseDoor_Hidden")
-            warehouseKey = 1;
-        else if (tag == "Shrine")
-            shrineKey = 1;
+        if (tag.Equals("WarehouseKey"))
+            hasWarehouseKey = true;
 
-
+        else if (tag.Equals("Shrine"))
+            hasShrineKey = true;
     } 
 
     public bool IsKeyOn(string tag)
     {
-        if (tag == "Shaman_WarehouseDoor_Hidden")
+
+        switch (tag)
         {
-            if (warehouseKey == 1)
-                return true;
-            else
-                return false;
+            case "Shaman_WarehouseDoor":
+                return hasWarehouseKey;
+
+            case "Shrine":
+                return hasShrineKey;
         }
 
-        else if (tag == "Shrine")
-        {
-            if (shrineKey == 1)
-                return true;
-            else
-                return false;
-        }
-
-        else
-            return false;
-
+        return false;
     }
-
-
-
-
-
-
-
 }

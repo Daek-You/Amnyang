@@ -1,7 +1,7 @@
 ﻿{
   "List": {
-    "SujiHouseDoor": "꼭 밝혀내야해 아직은 들어갈 때가 아니야",
-    "DogHouse": "강아지의 빈자리가 느껴져...",
+    "SujiHouseDoor": "꼭 밝혀내야 해. 아직은 들어갈 때가 아니야",
+    "DogHouse": "강아지의 빈 자리가 느껴져...",
     "SujiHouseGate1": "이제 출발해보자.",
     "SujiHouseGate2": "대문은 이미 열렸어 출발하자.",
     "Mailbox": "여차하면 숨을 수 있을 것 같아.",
@@ -18,10 +18,10 @@
     "15": "물이 가득 받아져 있다.",
     "16": "높아서 옆면만 보인다.",
     "Shrine": "사당으로 가는 열쇠를 얻었다.",
-    "Shaman_WarehouseDoor_Hidden": "창고로 가는 열쇠를 얻었다.",
+    "WarehouseKey": "창고로 가는 열쇠를 얻었다.",
     "ShrineNoKey": "사당으로 가는 열쇠가 필요해.",
-    "Shaman_WarehouseDoor_HiddenNoKey": "창고로 가는 열쇠가 필요해.",
-    "Shrinealready": "사당으로 가는 열쇠는 이미 얻었어.",
-    "Shaman_WarehouseDoor_Hiddenalready": "창고로 가는 열쇠는 이미 얻었어."
+    "Shaman_WarehouseDoorNoKey": "창고로 가는 열쇠가 필요해.",
+    "ShrineAlready": "사당으로 가는 열쇠는 이미 얻었어.",
+    "Shaman_WarehouseDoorAlready": "창고로 가는 열쇠는 이미 얻었어."
   }
 }

@@ -25,10 +25,7 @@ public class RoomVectorManager : MonoBehaviour
         DestroyImmediate(gameObject);
     }
 
-    private void Update()
-    {
 
-    }
 
     public Vector2 GetRoomVector(string objTag)
     {
