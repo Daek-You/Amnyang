@@ -48,18 +48,19 @@ public class DualGate : AbstractGate
                 break;
 
             case "Shrine":
-                if(!_isOpen && !GameDataManager.Instance.hasShrineKey)
+                if (!_isOpen && !GameDataManager.Instance.hasShrineKey)
                 {
-                    if (!GameDataManager.Instance.IsKeyOn(tag))
-                        DialogController.Instance.ShowDialog(tag+"NoKey");
-                    else
-                        StartCoroutine(Open());
+                if (!GameDataManager.Instance.IsKeyOn(tag)) 
+                    DialogController.Instance.ShowDialog(tag + "NoKey");
+                else
+                    StartCoroutine(Open());
                 }
 
                 else if (!_isOpen && GameDataManager.Instance.hasShrineKey)
                 {
                     StartCoroutine(Open());
                     /// 게임 엔딩
+                    LoadingSceneManager.LoadScene("Ending_Scene");
                 }
                 break;
         }
