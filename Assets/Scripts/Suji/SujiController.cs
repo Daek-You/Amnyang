@@ -25,7 +25,9 @@ public class SujiController : MonoBehaviour
     private bool isRunning;
     private bool isJumping;
     private bool isHiding;
+    private bool isDie;
 
+    // 죽었을 때와 페이드인아웃 중엔 움직이면 안 됨.
 
 
     void Start()
@@ -38,19 +40,21 @@ public class SujiController : MonoBehaviour
 
     void Update()
     {
-        walkDirection = Input.GetAxisRaw("Horizontal");
-        hasControl = !Mathf.Approximately(walkDirection, 0f);
-        isRunning = Input.GetButton("Run");
-        if (Input.GetButtonDown("Jump") && !isJumping)
+        if (!isDie || FadeInOutController.IsFinished)
         {
-            Jump();
-        }
+            walkDirection = Input.GetAxisRaw("Horizontal");
+            hasControl = !Mathf.Approximately(walkDirection, 0f);
+            isRunning = Input.GetButton("Run");
+            if (Input.GetButtonDown("Jump") && !isJumping)
+            {
+                Jump();
+            }
 
-        if (Input.GetButtonDown("Interaction"))
-        {
-            Interaction();
+            if (Input.GetButtonDown("Interaction"))
+            {
+                Interaction();
+            }
         }
-
     }
 
 
@@ -79,6 +83,19 @@ public class SujiController : MonoBehaviour
 
         OnOffHiddenSpritePlayer(hidingSprite, isDynamicHiddenSpace);
     }
+
+    public void OnDie()
+    {
+        isDie = true;
+        walkDirection = 0f;
+        hasControl = false;
+        isRunning = false;
+        isJumping = false;
+
+        FadeInOutController.Instance.ImmediateFadeOut();
+        FadeInOutController.Instance.TextFadeInOut();
+    }
+
 
 
     private void Jump()

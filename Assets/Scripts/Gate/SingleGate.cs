@@ -7,6 +7,7 @@ public class SingleGate : AbstractGate
 
     public GameObject doorAxis;
     public SujiController suji;
+    public CameraManager _cameraManager;
     private Vector2 roomVector;
 
     protected override IEnumerator Open()
@@ -66,7 +67,7 @@ public class SingleGate : AbstractGate
                 roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                 FadeInOutController.Instance.FadeIn(false);
                 suji.MoveAnotherRoom(roomVector);
-                CameraManager.Instance.tagKeyName = tag;
+                _cameraManager.tagKeyName = tag;
                 break;
 
 
@@ -82,7 +83,7 @@ public class SingleGate : AbstractGate
                     roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                     FadeInOutController.Instance.FadeIn(false);
                     suji.MoveAnotherRoom(roomVector);
-                    CameraManager.Instance.tagKeyName = tag;
+                    _cameraManager.tagKeyName = tag;
                 }
                 else
                 {
@@ -106,7 +107,7 @@ public class SingleGate : AbstractGate
                 roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
                 FadeInOutController.Instance.FadeIn(false);
                 suji.MoveAnotherRoom(roomVector);
-                CameraManager.Instance.tagKeyName = CameraManager.Instance.MAINROON;
+                _cameraManager.tagKeyName = _cameraManager.MAINROON;
                 break;
 
             case "Shaman_OutsideDoor_From_Bath_Hidden":
@@ -117,9 +118,9 @@ public class SingleGate : AbstractGate
                 }
 
                 roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
-                FadeInOutController.Instance.FadeIn(true);
+                FadeInOutController.Instance.FadeIn(false);
                 suji.MoveAnotherRoom(roomVector);
-                CameraManager.Instance.tagKeyName = CameraManager.Instance.VILLAGE;
+                _cameraManager.tagKeyName = _cameraManager.VILLAGE;
                 break;
         }
 
