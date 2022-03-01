@@ -27,6 +27,8 @@ TagManager:
   - Village
   - Shaman_WarehouseDoor
   - WarehouseKey
+  - InsideFloor
+  - OutsideFloor
   layers:
   - Default
   - TransparentFX

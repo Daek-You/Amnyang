@@ -9,13 +9,15 @@ public class InteractiveObject : MonoBehaviour
     [SerializeField] private SpriteRenderer hidingSprite;
     [SerializeField] private bool isDynamicHiddenSpace;        // 상호작용 요청한 시점의 플레이어 위치에 숨을 경우
     [SerializeField] private ObjectType objectType;
+    public GameObject Key;
+    public AudioClip[] audioClips;
     private SujiController suji;
     private string objectTag;
-
-    public GameObject Key;
+    private AudioSource _audioSource;
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         objectTag = this.gameObject.tag;
     }
 

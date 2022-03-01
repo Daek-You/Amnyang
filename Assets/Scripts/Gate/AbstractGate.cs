@@ -7,7 +7,7 @@ public abstract class AbstractGate : MonoBehaviour
 {
 
     public bool IsOpen { get { return _isOpen; } }
-
+    public AudioSource _audioSource;
     protected float rotateSpeed = 2f;
     protected const float MIN_ANGLE = 0f;
     protected const float MAX_ANGLE = 90f;

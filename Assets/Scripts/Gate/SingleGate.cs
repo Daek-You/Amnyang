@@ -17,6 +17,8 @@ public class SingleGate : AbstractGate
             if (_isOpening)
                 yield break;
 
+
+            _audioSource.Play();
             StartCoroutine(GatePassDelay());
             _isOpening = true;
 
@@ -49,7 +51,9 @@ public class SingleGate : AbstractGate
 
             case "SujiHouseGate":
                 if (!_isOpen)
+                {
                     StartCoroutine(Open());
+                }
 
                 DialogController.Instance.ShowDialog(tag, _isOpen);
                 return;
