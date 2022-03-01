@@ -27,7 +27,8 @@ TagManager:
   - Village
   - Shaman_WarehouseDoor
   - WarehouseKey
-  - ShrineKey
+  - InsideFloor
+  - OutsideFloor
   layers:
   - Default
   - TransparentFX
@@ -40,7 +41,7 @@ TagManager:
   - Enemy
   - Player
   - Item
-  - 
+  - PostProcessing
   - 
   - 
   - 
@@ -140,12 +141,9 @@ TagManager:
   - name: Front_Grass
     uniqueID: 2253953961
     locked: 0
-  - name: aa
+  - name: 
     uniqueID: 3616732827
     locked: 0
   - name: UI
     uniqueID: 1438417231
-    locked: 0
-  - name: New Layer
-    uniqueID: 2792739597
     locked: 0

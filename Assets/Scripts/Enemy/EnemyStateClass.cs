@@ -134,15 +134,26 @@ public class ChaseState : IState
                 isStartTimer = true;
             }
 
-            float currentTime = Time.time;
-            if (currentTime >= findStartTime + findingTime)
-            {
-                enemy.StateMachine.SetState(enemy, Idle.GetInstance());
-            }
+            CheckTimer(enemy);
         }
 
- 
+
+        if (isStartTimer)
+        {
+            CheckTimer(enemy);
+        }
+
     }
+
+    private void CheckTimer(Enemy enemy)
+    {
+        float currentTime = Time.time;
+        if (currentTime >= findStartTime + findingTime)
+        {
+            enemy.StateMachine.SetState(enemy, Idle.GetInstance());
+        }
+    }
+
 
     public void StateExit(Enemy enemy)
     {

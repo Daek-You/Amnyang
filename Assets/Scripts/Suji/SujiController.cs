@@ -25,7 +25,10 @@ public class SujiController : MonoBehaviour
     private bool isRunning;
     private bool isJumping;
     private bool isHiding;
+    private bool isDie;
+    private SoundEvent _soundEvent;
 
+    // 죽었을 때와 페이드인아웃 중엔 움직이면 안 됨.
 
 
     void Start()
@@ -33,26 +36,28 @@ public class SujiController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         animator = GetComponentInChildren<Animator>();
+        _soundEvent = GetComponentInChildren<SoundEvent>();
         initScaleX = suji.localScale.x;
     }
 
     void Update()
     {
-        walkDirection = Input.GetAxisRaw("Horizontal");
-        hasControl = !Mathf.Approximately(walkDirection, 0f);
-        isRunning = Input.GetButton("Run");
-        if (Input.GetButtonDown("Jump") && !isJumping)
+        if (!isDie || FadeInOutController.IsFinished)
         {
-            Jump();
-        }
+            walkDirection = Input.GetAxisRaw("Horizontal");
+            hasControl = !Mathf.Approximately(walkDirection, 0f);
+            isRunning = Input.GetButton("Run");
+            if (Input.GetButtonDown("Jump") && !isJumping)
+            {
+                Jump();
+            }
 
-        if (Input.GetButtonDown("Interaction"))
-        {
-            Interaction();
+            if (Input.GetButtonDown("Interaction"))
+            {
+                Interaction();
+            }
         }
-
     }
-
 
     void FixedUpdate()
     {
@@ -80,6 +85,19 @@ public class SujiController : MonoBehaviour
         OnOffHiddenSpritePlayer(hidingSprite, isDynamicHiddenSpace);
     }
 
+    public void OnDie()
+    {
+        isDie = true;
+        walkDirection = 0f;
+        hasControl = false;
+        isRunning = false;
+        isJumping = false;
+
+        FadeInOutController.Instance.ImmediateFadeOut();
+        FadeInOutController.Instance.TextFadeInOut();
+    }
+
+
 
     private void Jump()
     {
@@ -100,8 +118,7 @@ public class SujiController : MonoBehaviour
         }
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void FootSettings(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Jumpable_Floor") && isJumping)
         {
@@ -112,7 +129,7 @@ public class SujiController : MonoBehaviour
                 StartCoroutine(LandingDelay());
                 return;
             }
-            
+
             animator.SetBool("MoveJump", false);
             isJumping = false;
         }
@@ -121,6 +138,8 @@ public class SujiController : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
+
+        _soundEvent.isSheInside = collision.gameObject.CompareTag("InsideFloor") ? true : false;
     }
 
 

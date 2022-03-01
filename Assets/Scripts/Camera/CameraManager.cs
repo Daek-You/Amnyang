@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
 
-    public static CameraManager Instance { get { return _instance; } }
     public Transform followingTarget;
     public float moveSpeed;
     public string VILLAGE { get; private set; } = "Village";
@@ -14,8 +13,6 @@ public class CameraManager : MonoBehaviour
     public string BATHROOM { get; private set; } = "Shaman_BathroomDoor";
 
 
-
-    private static CameraManager _instance = null;
     private Vector2 canMoveAreaCenter;       // 카메라 이동 가능영역 중심
     private Vector2 canMoveAreaSize;         // 카메라 이동 가능영역 크기
     private CameraManager() { }
@@ -38,36 +35,33 @@ public class CameraManager : MonoBehaviour
     private Dictionary<string, (Vector2, Vector2)> dictionary = new Dictionary<string, (Vector2, Vector2)>();
 
 
-
-
-
-
     void Awake()
     {
-
-        if(_instance == null)
-        {
-            _instance = this;
-            cameraHalfHeight = Camera.main.orthographicSize;
-            cameraHalfWidth = Screen.width * cameraHalfHeight / Screen.height;
-            DontDestroyOnLoad(this.gameObject);
-            return;
-        }
-
-        DestroyImmediate(this.gameObject);
+        cameraHalfHeight = Camera.main.orthographicSize;
+        cameraHalfWidth = Screen.width * cameraHalfHeight / Screen.height;
     }
 
 
     void Start()
     {
-        dictionary.Clear();
+        dictionary.Clear();        // -106.9f
         dictionary.Add(VILLAGE, (new Vector2(-65f, 18.8f), new Vector2(400f, 48f)));
-        dictionary.Add(MAINROON, (new Vector2(204.1f, -106.9f), new Vector2(123.5f, 49.6f)));
-        dictionary.Add(WAREHOUSE, (new Vector2(342.4f, -284.8f), new Vector2(123.7f, 53.4f)));
-        dictionary.Add(BATHROOM, (new Vector2(192.9f, -467.6f), new Vector2(101.2f, 48.9f)));
+        dictionary.Add(MAINROON, (new Vector2(204.1f, -106.9f), new Vector2(123.5f, 44.1f)));
+        dictionary.Add(WAREHOUSE, (new Vector2(342.4f, -284.8f), new Vector2(123.7f, 44.1f)));
+        dictionary.Add(BATHROOM, (new Vector2(192.9f, -464.5f), new Vector2(101.2f, 44.1f)));
         OnChangeCameraVector(VILLAGE);
     }
 
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        foreach(var i in dictionary.Values)
+        {
+            Gizmos.DrawWireCube(i.Item1, i.Item2);
+        }
+    }
 
     private void OnChangeCameraVector(string tagKeyName)
     {

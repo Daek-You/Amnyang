@@ -11,7 +11,12 @@ public class DualGate : AbstractGate
     {
         if(rightDoorAxis != null && leftDoorAxis != null)
         {
+            if (_isOpening)
+                yield break;
+
+            _audioSource.Play();
             StartCoroutine(GatePassDelay());
+            _isOpening = true;
 
             while (true)
             {
@@ -28,6 +33,7 @@ public class DualGate : AbstractGate
             }
 
             _isOpen = true;
+            _isOpening = false;
         }
     }
 
