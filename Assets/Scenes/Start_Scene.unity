@@ -385,9 +385,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5849056, g: 0.15726236, b: 0.15726236, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_PressedColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.3301887, g: 0.010902463, b: 0.010902463, a: 1}
+    m_PressedColor: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
     m_SelectedColor: {r: 0.9528302, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.1981132, g: 0.19530971, b: 0.19530971, a: 0.5019608}
     m_ColorMultiplier: 2
@@ -492,7 +492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -71}
   m_SizeDelta: {x: 700, y: 340}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &754710550
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.4627451}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.68235296}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Color: {r: 0.20754719, g: 0.2046102, b: 0.2046102, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1322,8 +1322,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.20572266, g: 0.6320754, b: 0.20790124, a: 1}
-    m_HighlightedColor: {r: 0.02701545, g: 0.33962262, b: 0, a: 1}
+    m_NormalColor: {r: 0, g: 1, b: 0.0063290596, a: 1}
+    m_HighlightedColor: {r: 0.04218585, g: 0.2735849, b: 0.021938415, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9528302, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.1981132, g: 0.19530971, b: 0.19530971, a: 0.5019608}

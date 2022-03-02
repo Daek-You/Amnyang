@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public Light2D _haloLight;
     public SujiController suji { get; set; }
     public bool IsCanChase { get; set; } = false;
+    public BGMManager _BGMManager;
+
 
 
     private StateMachine _stateMachine;

@@ -8,6 +8,7 @@ public class SujiController : MonoBehaviour
     public float walkSpeed;
     public float jumpPower;
     public Transform suji;
+    public BGMManager _BGMManager;
     public InteractiveObject InteractiveObject { set { _interactiveObject = value; } }
     public bool IsHiding { get { return isHiding; } private set {} }
     public GameObject[] myBodies;
@@ -27,8 +28,8 @@ public class SujiController : MonoBehaviour
     private bool isHiding;
     private bool isDie;
     private SoundEvent _soundEvent;
+    private const string BGM_DIE = "Sound_Bgm_Die";
 
-    // 죽었을 때와 페이드인아웃 중엔 움직이면 안 됨.
 
 
     void Start()
@@ -94,6 +95,7 @@ public class SujiController : MonoBehaviour
         isJumping = false;
 
         FadeInOutController.Instance.ImmediateFadeOut();
+        _BGMManager.OnPlay(BGM_DIE);
         FadeInOutController.Instance.TextFadeInOut();
     }
 
