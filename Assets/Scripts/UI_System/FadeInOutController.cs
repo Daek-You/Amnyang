@@ -36,9 +36,8 @@ public class FadeInOutController : MonoBehaviour
     void Start()
     {
         canvas = GetComponentInChildren<Canvas>();
-        StartCoroutine(FadeInCoroutine(false));
+        FadeIn(false);
     }
-
 
     public void FadeIn(bool isSlow)
     {
@@ -93,7 +92,6 @@ public class FadeInOutController : MonoBehaviour
         IsFinished = true;
         gameOverTxt.gameObject.SetActive(false);
         LoadingSceneManager.LoadScene("Village_Scene");
-        FadeIn(true);
     }
 
     private IEnumerator FadeInCoroutine(bool isSlow)

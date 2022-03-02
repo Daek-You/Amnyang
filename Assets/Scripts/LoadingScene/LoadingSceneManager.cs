@@ -26,7 +26,12 @@ public class LoadingSceneManager : MonoBehaviour
     }
 
     private IEnumerator LoadSceneCoroutine() 
-    { 
+    {
+
+        if(GameDataManager.Instance != null)
+        {
+            GameDataManager.Instance.isGameStart = false;
+        }
         yield return waitTime;
 
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene); 
@@ -54,9 +59,15 @@ public class LoadingSceneManager : MonoBehaviour
                 if (progressBar.fillAmount == 1.0f) 
                 {
                     op.allowSceneActivation = true;
+
+                    if (GameDataManager.Instance != null)
+                    {
+                        GameDataManager.Instance.isGameStart = true;
+                    }
                     yield break; 
                 } 
             } 
-        } 
+        }
+
     }
 }
