@@ -95,7 +95,7 @@ public class SujiController : MonoBehaviour
         isJumping = false;
 
         FadeInOutController.Instance.ImmediateFadeOut();
-        _BGMManager.OnPlay(BGM_DIE);
+        _BGMManager.OnPlay();
         FadeInOutController.Instance.TextFadeInOut();
     }
 

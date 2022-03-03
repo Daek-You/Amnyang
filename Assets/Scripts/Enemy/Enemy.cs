@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 
+public enum EnemyType
+{
+    ePolice = 1,
+    eShaman = 2,
+}
+
+
+
+
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed;
