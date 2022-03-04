@@ -4,15 +4,6 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 
-public enum EnemyType
-{
-    ePolice = 1,
-    eShaman = 2,
-}
-
-
-
-
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed;
@@ -22,7 +13,7 @@ public class Enemy : MonoBehaviour
     public SujiController suji { get; set; }
     public bool IsCanChase { get; set; } = false;
     public BGMManager _BGMManager;
-
+    public SoundEvent _soundEvent;
 
 
     private StateMachine _stateMachine;
@@ -40,15 +31,16 @@ public class Enemy : MonoBehaviour
 
 
 
+
     void Start()
     {
-        _collider = GetComponent<Collider2D>();
-        _rigidBody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        _collider = GetComponentInChildren<Collider2D>();
+        _rigidBody = GetComponentInChildren<Rigidbody2D>();
+        _animator = GetComponentInChildren<Animator>();
         _stateMachine = new StateMachine(this, Idle.GetInstance());
-        initScaleX = -this.transform.localScale.x;        // 얘는 왼쪽이 기본값이네
         _spriteRenderes = GetComponentsInChildren<SpriteRenderer>();
         normalEnemyColor = _spriteRenderes[0].color;            // 어차피 모두 같은 컬러 사용
+        initScaleX = -this.transform.localScale.x;              // 얘는 왼쪽이 기본값이네
     }
 
 
@@ -67,6 +59,13 @@ public class Enemy : MonoBehaviour
             _stateMachine.FixedUpdateState(this);
         }
     }
+
+
+    public void FootSettings(Collision2D collision)
+    {
+        _soundEvent.isSheInside = collision.gameObject.CompareTag("InsideFloor") ? true : false;
+    }
+
 
 
     public void ThinkNextMovingRepeat()
@@ -193,6 +192,7 @@ public class Enemy : MonoBehaviour
 
     private void TurnAround(bool isFeelPlayerAround)
     {
+
         var scaleX = this.transform.localScale.x;
         var scaleY = this.transform.localScale.y;
         var scaleZ = this.transform.localScale.z;

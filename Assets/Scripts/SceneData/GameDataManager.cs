@@ -35,6 +35,22 @@ public class GameDataManager : MonoBehaviour
 
 
 
+    /*  <현재 문제점>
+        - 싱글톤으로 구현하니, 게임 재시작할 때 수지와 무당 객체가 새로 생성되어 널 참조가 됨
+        - 무당은 수지가 문 밖으로 나갔다면, 1초 정도 뒤에 문 밖으로 나가야함
+     
+    */ 
+
+
+
+
+
+
+
+
+
+
+
     private void Update()
     {
         if (isGameStart)
