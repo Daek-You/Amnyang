@@ -32,6 +32,9 @@ public class StateMachine
 
         currentState.StateExit(enemy);
         currentState = state;
+
+        SoundPlayType soundType = (currentState == FeelStrange.GetInstance()) ? SoundPlayType.Fast : SoundPlayType.Slow;
+        enemy._BGMManager.OnPlay(currentState, soundType);
         currentState.StateEnter(enemy);
     }
 

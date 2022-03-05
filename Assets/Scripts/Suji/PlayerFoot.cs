@@ -15,9 +15,11 @@ public class PlayerFoot : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(this.gameObject.layer == LayerMask.NameToLayer("PlayerFoot"))
+        if(this.gameObject.layer == LayerMask.NameToLayer("Foot"))
         {
             suji.FootSettings(collision);
         }
     }
+
+
 }

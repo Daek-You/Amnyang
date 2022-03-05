@@ -29,6 +29,7 @@ TagManager:
   - WarehouseKey
   - InsideFloor
   - OutsideFloor
+  - Shaman
   layers:
   - Default
   - TransparentFX
@@ -42,7 +43,7 @@ TagManager:
   - Player
   - Item
   - PostProcessing
-  - PlayerFoot
+  - Foot
   - 
   - 
   - 

@@ -8,8 +8,6 @@ public class Idle : IState
     private static Idle Instance = new Idle();
     private Idle() { }
     public static Idle GetInstance() {  return Instance; }
-    public const string BGM = "Sound_Bgm_Village";
-
 
 
     public void StateEnter(Enemy enemy)
@@ -17,7 +15,6 @@ public class Idle : IState
         if (enemy != null)
         {
             enemy.ThinkNextMovingRepeat();
-            enemy._BGMManager.OnPlay(BGM, SoundPlayType.Slow);
         }
     }
 
@@ -43,7 +40,7 @@ public class FeelStrange : IState
     private static FeelStrange Instance = new FeelStrange();
     private const float DETECT_TIME = 5f;
     private float detectStartTime;
-    public const string BGM = "Sound_Bgm_EnemyFeel";
+
 
     private FeelStrange() { }
 
@@ -57,7 +54,6 @@ public class FeelStrange : IState
         if (enemy != null)
         {
             enemy.Animator.SetBool("isFeel", true);
-            enemy._BGMManager.OnPlay(BGM, SoundPlayType.Fast);
             detectStartTime = Time.time;
             enemy.FeelStrangeAround();
         }
@@ -98,7 +94,7 @@ public class ChaseState : IState
     private SujiController suji;
     private bool isStartTimer = false;
     private bool isCheckAround = false;
-    public const string BGM = "Sound_Bgm_Chase";
+
 
     private ChaseState() { }
     
@@ -113,7 +109,6 @@ public class ChaseState : IState
         enemy.suji = suji;
         enemy.StartCoroutine("Wait", false);
         findingTime = Random.Range(10, 16);
-        enemy._BGMManager.OnPlay(BGM, SoundPlayType.Fast);
     }
 
 

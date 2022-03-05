@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShamanTeleport : MonoBehaviour
 {
     public static ShamanTeleport Instance;
-    public Shaman shaman;
     private Vector2 roomVector;
     private void Awake()
     {
@@ -21,7 +20,6 @@ public class ShamanTeleport : MonoBehaviour
     public void ShamanTeleportToSuji()
     {
         roomVector = RoomVectorManager.Instance.GetRoomVector(GameDataManager.Instance.sujiLocation);
-        shaman.MoveAnotherRoom(roomVector);
     }
 
 }
