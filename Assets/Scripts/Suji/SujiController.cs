@@ -120,6 +120,15 @@ public class SujiController : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Item"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+    }
+
     public void FootSettings(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Jumpable_Floor") && isJumping)

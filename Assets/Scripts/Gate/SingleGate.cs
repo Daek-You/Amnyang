@@ -95,11 +95,6 @@ public class SingleGate : AbstractGate
                 }
                 break;
 
-            //case "Shaman_OutsideDoor_Hidden":
-            //    roomVector = RoomVectorManager.Instance.GetRoomVector(tag);
-            //    FadeInOutController.Instance.FadeIn(false);
-            //    suji.MoveAnotherRoom(roomVector);
-            //    break;
 
             case "Shaman_From_Warehouse_To_MainRoom_Hidden":
                 if (!_isOpen)

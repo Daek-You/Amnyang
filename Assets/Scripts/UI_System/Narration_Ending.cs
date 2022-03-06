@@ -20,7 +20,9 @@ public class Narration_Ending : MonoBehaviour
     private WaitForSeconds commaDelayTime = new WaitForSeconds(1.5f);
     private WaitForSeconds loadingDelay = new WaitForSeconds(2f);
     private string jsonDataLine;
-    private const string nextIngameSceneName = "Start_Scene";
+
+
+
 
 
     void Awake()
@@ -43,6 +45,11 @@ public class Narration_Ending : MonoBehaviour
     }
 
 
+    public void Restart()
+    {
+        LoadingSceneManager.LoadScene("Start_Scene");
+    }
+
 
     private IEnumerator TextTyping(bool restingComma)
     {
@@ -59,12 +66,6 @@ public class Narration_Ending : MonoBehaviour
 
             text.text = _jsonStringBD.Append(i).ToString();
             yield return delayTime;
-        }
-
-        if (index == _jsonData[0].Count)
-        {
-            yield return loadingDelay;
-            LoadingSceneManager.LoadScene(nextIngameSceneName);
         }
     }
 

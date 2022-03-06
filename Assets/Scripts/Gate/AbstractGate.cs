@@ -17,6 +17,7 @@ public abstract class AbstractGate : MonoBehaviour
     protected bool _isOpening = false;
     private WaitForSeconds gatePassWaitTime = new WaitForSeconds(0.5f);
     [SerializeField] private Collider2D gateCollider;
+    public List<AudioClip> effClips = new List<AudioClip>();
 
 
     protected abstract IEnumerator Open();

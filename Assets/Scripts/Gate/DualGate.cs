@@ -7,6 +7,7 @@ public class DualGate : AbstractGate
     public GameObject rightDoorAxis;
     public GameObject leftDoorAxis;
 
+
     protected override IEnumerator Open()
     {
         if(rightDoorAxis != null && leftDoorAxis != null)
@@ -56,16 +57,23 @@ public class DualGate : AbstractGate
             case "Shrine":
                 if (!_isOpen && !GameDataManager.Instance.hasShrineKey)
                 {
-                if (!GameDataManager.Instance.IsKeyOn(tag)) 
-                    DialogController.Instance.ShowDialog(tag + "NoKey");
-                else
-                    StartCoroutine(Open());
+                    if (!GameDataManager.Instance.IsKeyOn(tag))
+                    {
+
+                        _audioSource.clip = effClips.Find(x => x.name.Equals("Sound_Eff_Interaction"));
+                        DialogController.Instance.ShowDialog(tag + "NoKey");
+                        _audioSource.Play();
+                    }
+                    else
+                    {
+                        _audioSource.clip = effClips.Find(x => x.name.Equals("Sound_Eff_DualDoor"));
+                        StartCoroutine(Open());
+                    }
                 }
 
                 else if (!_isOpen && GameDataManager.Instance.hasShrineKey)
                 {
                     StartCoroutine(Open());
-                    /// 게임 엔딩
                     LoadingSceneManager.LoadScene("Ending_Scene");
                 }
                 break;

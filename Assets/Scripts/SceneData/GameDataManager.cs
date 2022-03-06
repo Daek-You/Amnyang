@@ -7,14 +7,6 @@ public class GameDataManager : MonoBehaviour
 
     public static GameDataManager Instance { get { return _instance; } }
     private static GameDataManager _instance = null;
-
-    //public SujiController suji;
-    //public Shaman shaman;
-   
-    public float sujiCurrentPositionY;
-    public float shamanCurrentPositionY;
-    public bool isAreTheyInTheSamePlace;
-    public string sujiLocation;
     public bool isGameStart = false;
 
     public bool hasShrineKey { get; set; } = false;
@@ -34,23 +26,6 @@ public class GameDataManager : MonoBehaviour
     }
 
 
-
-    /*  <현재 문제점>
-        - 싱글톤으로 구현하니, 게임 재시작할 때 수지와 무당 객체가 새로 생성되어 널 참조가 됨
-        - 무당은 수지가 문 밖으로 나갔다면, 1초 정도 뒤에 문 밖으로 나가야함
-     
-    */ 
-
-
-
-
-
-
-
-
-
-
-
     private void Update()
     {
         if (isGameStart)
@@ -58,29 +33,11 @@ public class GameDataManager : MonoBehaviour
             FadeInOutController.Instance.FadeIn(false);
             isGameStart = false;
         }
-
-
-        //sujiCurrentPositionY = suji.transform.position.y;
-        //shamanCurrentPositionY = shaman.transform.position.y;
-
-        //if (0 < sujiCurrentPositionY - shamanCurrentPositionY && sujiCurrentPositionY - shamanCurrentPositionY < 15)
-        //    isAreTheyInTheSamePlace = true;
-        //else
-        //    isAreTheyInTheSamePlace = false;
-
-        //if (-10.0f < sujiCurrentPositionY && sujiCurrentPositionY < 40.0f)
-        //    sujiLocation = "Shaman_OutsideDoor_Hidden(Shaman)";
-        //else if (-133.0f < sujiCurrentPositionY && sujiCurrentPositionY < -55)
-        //    sujiLocation = "Shaman_MainRoomDoor_Hidden2(Shaman)";
-        //else if (-315 < sujiCurrentPositionY && sujiCurrentPositionY < -233)
-        //    sujiLocation = "Shaman_WarehouseDoor_Hidden(Shaman)";
-        //else if (-500 < sujiCurrentPositionY && sujiCurrentPositionY < -414)
-        //    sujiLocation = "Shaman_BathroomDoor_Hidden(Shaman)";
     }
 
     public void GetKey(string tag)
     {
-        if (tag.Equals("WarehouseKey"))
+        if (tag.Equals("Shaman_WarehouseDoor"))
             hasWarehouseKey = true;
 
         else if (tag.Equals("Shrine"))

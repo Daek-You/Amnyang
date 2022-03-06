@@ -10,10 +10,12 @@ public class BloodFlow : MonoBehaviour
     private Vector2 eventVectorSize = new Vector2(40f, 20f);
     private Animator _animator;
     private bool isOccurEvent = false;
+    private AudioSource _audioSource;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -29,6 +31,7 @@ public class BloodFlow : MonoBehaviour
         if (canOccurEvent)
         {
             _animator.SetTrigger("Flow");
+            _audioSource.Play();
             isOccurEvent = true;
         }
     }

@@ -10,7 +10,7 @@ public class InteractiveObject : MonoBehaviour
     [SerializeField] private bool isDynamicHiddenSpace;        // 상호작용 요청한 시점의 플레이어 위치에 숨을 경우
     [SerializeField] private ObjectType objectType;
     public GameObject Key;
-    public AudioClip[] audioClips;
+    //public AudioClip[] audioClips;
     private SujiController suji;
     private string objectTag;
     private AudioSource _audioSource;
@@ -24,29 +24,34 @@ public class InteractiveObject : MonoBehaviour
 
     public void Interaction()
     {
-
         switch ((int)objectType)
         {
             case (int)ObjectType.eSimpleEventObject:
+                _audioSource.Play();
                 DialogController.Instance.ShowDialog(objectTag);
 
                 break;
 
             case (int)ObjectType.eCanHideObject:
                 if(hidingSprite != null)
+                {
+                    _audioSource.Play();
                     suji.Hide(hidingSprite, isDynamicHiddenSpace);
+                }
 
                 break;
 
             case (int)ObjectType.eItemObject:
                 if (!GameDataManager.Instance.IsKeyOn(objectTag))                 
                 {
+                    _audioSource.Play();
                     GameDataManager.Instance.GetKey(objectTag);                   
                     DialogController.Instance.ShowDialog(objectTag);              
                     Key.SetActive(true);
                 }
                 else
                 {
+                    _audioSource.Play();
                     DialogController.Instance.ShowDialog(objectTag + "Already");
                 }
                 break;
