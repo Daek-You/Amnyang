@@ -12,7 +12,7 @@ public class Narration_Ending : MonoBehaviour
 {
 
     public Text text;
-    private const string jsonFilePath = "/Resources/Json/Narration_Ending.json";
+    private const string jsonFilePath = "Json/Narration_Ending";
     private JsonData _jsonData;
     private int index;
     private StringBuilder _jsonStringBD = new StringBuilder();
@@ -91,16 +91,8 @@ public class Narration_Ending : MonoBehaviour
 
     private JsonData ReadJsonFile()
     {
-        if (File.Exists(Application.dataPath + jsonFilePath))
-        {
-            string jsonString = File.ReadAllText(Application.dataPath + jsonFilePath);
-            JsonData jsonData = JsonMapper.ToObject(jsonString);
-            return jsonData;
-        }
-        else
-        {
-            Debug.Log("파일없음");
-            return null;
-        }
+        var jsonTextFile = Resources.Load<TextAsset>(jsonFilePath);
+        JsonData jsonData = JsonMapper.ToObject(jsonTextFile.ToString());
+        return jsonData;
     }
 }

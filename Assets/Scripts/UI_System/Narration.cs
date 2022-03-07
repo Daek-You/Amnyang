@@ -12,7 +12,8 @@ public class Narration : MonoBehaviour
 {
 
     public Text text;
-    private const string jsonFilePath = "/Resources/Json/Narration.json";
+    private const string jsonFilePath = "Json/Narration";
+
     private JsonData _jsonData;
     private int index;
     private StringBuilder _jsonStringBD = new StringBuilder();
@@ -32,6 +33,12 @@ public class Narration : MonoBehaviour
 
     public void ShowNarration(bool restingComma)
     {
+        if(_jsonData == null)
+        {
+            Debug.Log("파일을 읽어오지 못했습니다.");
+        }
+
+
         if(_jsonData != null && index < _jsonData[0].Count)
         {
             text.text = "";
@@ -90,12 +97,17 @@ public class Narration : MonoBehaviour
 
     private JsonData ReadJsonFile()
     {
-        if(File.Exists(Application.dataPath + jsonFilePath))
-        {
-            string jsonString = File.ReadAllText(Application.dataPath + jsonFilePath);
-            JsonData jsonData = JsonMapper.ToObject(jsonString);
-            return jsonData;
-        }
-        return null;
+
+        var jsonTextFile = Resources.Load<TextAsset>(jsonFilePath); // Resource 폴더에 있는 JSON 파일을 로드해줘야함
+        JsonData jsonData = JsonMapper.ToObject(jsonTextFile.ToString());
+        //if(File.Exists(Application.dataPath + jsonFilePath))
+        //{
+        // string jsonString = File.ReadAllText(Application.dataPath + jsonFilePath);
+        //    JsonData jsonData = JsonMapper.ToObject(jsonString);
+        //    return jsonData;
+        //}
+        //return null;
+        return jsonData;
+
     }
 }
