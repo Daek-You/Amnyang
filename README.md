@@ -9,11 +9,11 @@
 
 
 ## Stack
-- __Unity 2020.03.25f LTS__
-- __Unity 2D Bone Animation__
-- __Unity Timeline__
-- __Unity C# Programming__
-- __Git(SourceTree), Github__  
+- __`Unity 2020.03.25f LTS`__
+- __`Unity 2D Bone Animation`__
+- __`Unity Timeline`__
+- __`Unity C# Programming`__
+- __`Git(SourceTree)`, `Github`__  
 
 ## Playing Video
 - [[Youtube] 게임시작 ](https://youtu.be/0dgfRczrXq8)
