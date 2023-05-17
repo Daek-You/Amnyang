@@ -39,4 +39,4 @@
   
 ### Contact and Development Diary  
 - __[Email]__ choieorb1998@naver.com
-- __[Tistory]__ [개발일지]([https://daekyoulibrary.tistory.com/category/%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C/%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C%20%EC%9D%BC%EC%A7%80](https://daekyoulibrary.tistory.com/category/%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB%EA%B0%9C%EB%B0%9C%20%EC%9D%BC%EC%A7%80/%5BUnity%202D%5D%20%EC%95%95%EB%9F%89?page=2))
+- __[Tistory]__ [개발일지](https://daekyoulibrary.tistory.com/category/%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB%EA%B0%9C%EB%B0%9C%20%EC%9D%BC%EC%A7%80/%5BUnity%202D%5D%20%EC%95%95%EB%9F%89?page=2)
